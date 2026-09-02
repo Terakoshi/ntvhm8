@@ -162,6 +162,43 @@
   .note{background:var(--hi-bg);border-radius:12px;padding:13px 14px;margin-bottom:10px;
     font-size:13px;line-height:1.75;color:#6B4326;}
   .note b{color:var(--hi);}
+
+  /* ── 宿くらべ ── */
+  .policy{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;}
+  .policy ol{margin:0;padding-left:1.3em;}
+  .policy li{font-size:13px;line-height:1.8;color:var(--sub);}
+  .policy li b{color:var(--ink);font-weight:600;}
+  .hcard{background:var(--card);border-radius:12px;padding:14px;margin-bottom:9px;
+         border-left:4px solid var(--line);}
+  .hcard.top{border-left-color:var(--accent);}
+  .hcard .hn{font-size:16px;font-weight:700;line-height:1.45;}
+  .hcard .hmeta{display:flex;gap:10px;align-items:baseline;margin-top:3px;flex-wrap:wrap;}
+  .hcard .hsc{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .hcard .hrv{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .hcard .hleft{font-size:11px;font-weight:700;color:var(--bad);background:var(--bad-bg);
+                border-radius:4px;padding:0 7px;}
+  .hprice{display:flex;align-items:baseline;gap:8px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);}
+  .hprice .p1{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .hprice .p2{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .hrow{display:flex;gap:8px;font-size:12.5px;line-height:1.65;margin-top:7px;}
+  .hrow .k{flex:none;width:40px;font-weight:700;color:var(--sub);font-size:11.5px;padding-top:1px;}
+  .hrow .v{flex:1;color:var(--sub);}
+  .hrow .v.ok{color:var(--ink);}
+  .mark{display:inline-block;font-size:11px;font-weight:700;border-radius:4px;padding:0 6px;margin-left:5px;}
+  .mark.y{background:var(--soft);color:var(--accent);}
+  .mark.n{background:#EFEFEF;color:#8D9895;}
+  .hgood{font-size:12.5px;line-height:1.7;color:var(--ink);margin-top:8px;}
+  .hbad{font-size:12.5px;line-height:1.7;color:var(--sub);margin-top:3px;}
+  .hlink{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:#fff;
+    background:var(--accent);text-decoration:none;border-radius:8px;padding:8px 16px;}
+  .sortbar{display:flex;gap:6px;margin:12px 4px 10px;}
+  .sortbar button{
+    -webkit-appearance:none;appearance:none;border:1px solid var(--line);font-family:inherit;cursor:pointer;
+    flex:1;background:#fff;color:var(--sub);font-size:12px;font-weight:700;border-radius:99px;padding:6px 0;}
+  .sortbar button.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .soldout{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;
+    font-size:12.5px;line-height:1.8;color:var(--sub);}
+  .soldout b{color:var(--ink);}
   .foot{font-size:11.5px;color:#94A09D;line-height:1.8;margin:16px 4px 0;}
 
   #tabs{flex:none;display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);}
@@ -219,6 +256,7 @@
       <div class="daytitle" id="daytitle"></div>
       <div class="card" style="padding:14px 14px 10px"><div id="dayBar"></div></div>
       <div class="card" id="planlist"></div>
+      <div class="note"><b>宿が未定です。</b>この旅程はOMO7高知を前提に組んであるので、<b>集合場所・大浴場・よさこいLIVE・チェックアウト時刻</b>は宿が決まったら差し替えます。食事と外の予定は変わりません。</div>
       <p class="foot">タップでチェックが付きます。時刻は目安です。</p>
     </div>
 
@@ -238,6 +276,31 @@
       <h2>予約が要るもの</h2>
       <div class="card" id="booklist"></div>
       <p class="foot">上の3つが決まってから予約に進むのが安全です。</p>
+    </div>
+
+    <!-- ══ 宿 ══ -->
+    <div class="pane" id="p-stay">
+      <h2>宿を選び直しています</h2>
+      <p class="lead">OMO7高知が満室になりました。あわせて「朝食バイキングでお腹いっぱいにすると、昼と夜が食べられない」という問題が見えたので、<b>朝食の豪華さを追うのをやめて</b>基準を作り直しました。</p>
+      <div class="policy">
+        <ol>
+          <li><b>立地</b>　ひろめ市場・帯屋町から徒歩10分以内</li>
+          <li><b>朝食は軽く</b>　素泊まり、または軽い朝食が選べる</li>
+          <li><b>大浴場</b>　昼に戻って仕切り直せる</li>
+          <li><b>3名1室</b>　11/7から3泊とれる</li>
+        </ol>
+      </div>
+      <div class="note">立地を1位にしたのは、<b>それが「食べられる量」に直結する</b>からです。昼に一度戻って風呂と仮眠を挟めれば夜また入りますし、屋台安兵衛（翌3時まで）から歩いて帰れて、日曜市にも寝起きで行けます。</div>
+
+      <h2>候補</h2>
+      <div class="sortbar" id="sortbar"></div>
+      <div id="hotellist"></div>
+
+      <h2>満室になった宿</h2>
+      <div class="soldout" id="soldout"></div>
+
+      <div class="note"><b>セゾン優待について。</b>高知でセゾン・UCカードの優待対象になっているのは<b>OMO7高知だけ</b>で、それが満室です。上の候補はどこも個別の優待対象ではありません。代わりに<b>セゾンポイントモール経由</b>でじゃらんや楽天トラベルに入ると永久不滅ポイントが上乗せされます（サイト全体で最大30倍）。倍率はログインしないと確認できませんでした。</div>
+      <p class="foot">価格は3泊・大人3名・1室の合計（税込）。じゃらんで2026年9月3日に調べたものです。残室と料金は動きます。</p>
     </div>
 
     <!-- ══ 候補 ══ -->
@@ -265,6 +328,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11.5L12 4.5l8 7"/><path d="M6.5 10.2V19.5h11v-9.3"/></svg>いま</button>
     <button data-p="plan">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg>旅程</button>
+    <button data-p="stay">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 20V7.5l8.5-4 8.5 4V20"/><path d="M9 20v-6h6v6"/></svg>宿</button>
     <button data-p="decide">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.2l2.3 2.3 4.5-4.7"/></svg>決める<span class="dot" id="tabDot"></span></button>
     <button data-p="list">
@@ -339,8 +404,53 @@ var ASKS = [
     opts:['寄らない（今の案のまま）','帰りに京都へ寄る'] },
   { id:'q3', q:'11/9の夜は、草やか、どんこか',
     a:'草やは6,000円のコースで田舎寿司つき・要予約。11/8の朝に日曜市で田舎寿司を食べるので、かぶるのが嫌なら「どんこ」（清水さばの寿司）。',
-    opts:['草や','どんこ'] }
+    opts:['草や','どんこ'] },
+  { id:'q4', q:'宿はどこにするか',
+    a:'OMO7高知が満室になったので選び直しです。方針に忠実で安いのが「吉萬」、立地と口コミの多さなら「セブンデイズ」。宿タブで並べて比べられます。',
+    opts:['吉萬','セブンデイズ'] }
 ];
+
+/* ══ 宿の候補（2026-09-03 じゃらん調べ・3泊 大人3名 1室） ══ */
+var HOTELS = [
+  { n:'セブンデイズホテルプラス', yad:'325448', sc:4.0, rv:636, price:97500, plan:'素泊まり（早期割14）',
+    loc:'日曜市・繁華街 徒歩2分／はりまや橋 徒歩5分', locOk:2,
+    asa:'素泊まりあり。朝食はパン中心（和定食は平日のみ）', asaOk:1,
+    bath:false, left:'残り1部屋',
+    good:'立地が候補中で最強。口コミ636件も最多で、清潔感が高評価',
+    bad:'大浴場がない（客室のユニットバスのみ）' },
+  { n:'オリエントホテル高知 和風別館 吉萬', yad:'311049', sc:4.0, rv:213, price:62370, plan:'無料の軽い朝食つき（和室）',
+    loc:'高知駅 徒歩5分／日曜市・はりまや橋も徒歩圏', locOk:1,
+    asa:'無料の軽い朝食つき。方針にぴったり', asaOk:2,
+    bath:true, left:'残り3部屋',
+    good:'方針を最も素直に満たし、しかも一番安い。接客と風呂が高評価',
+    bad:'口コミ213件と少なめ。宿自身が「建物・設備は古い」と明記' },
+  { n:'高知ホテル', yad:'386784', sc:4.2, rv:515, price:89490, plan:'素泊まり',
+    loc:'JR高知駅 徒歩1分（帯屋町からは遠い）', locOk:0,
+    asa:'素泊まりあり。朝食バイキングも選べる', asaOk:1,
+    bath:null, left:'—',
+    good:'口コミ515件で4.2。駅前で移動が楽',
+    bad:'ひろめ市場・帯屋町から離れる。大浴場の有無は未確認' },
+  { n:'JRクレメントイン高知', yad:'302237', sc:4.1, rv:587, price:107400, plan:'素泊まり',
+    loc:'JR高知駅 徒歩2分（帯屋町からは遠い）', locOk:0,
+    asa:'素泊まりあり。朝食は選べる和洋の定食', asaOk:1,
+    bath:false, left:'残り1部屋',
+    good:'口コミ587件。部屋と清潔感が高評価',
+    bad:'ひろめ市場・帯屋町から離れる。大浴場なし' },
+  { n:'RESIDENCE HARIMAYA', yad:'352915', sc:null, rv:0, price:131650, plan:'食事なし／ビル1フロア貸切 55〜76㎡',
+    loc:'はりまや橋 徒歩2分／ひろめ市場・高知駅 徒歩10分', locOk:2,
+    asa:'食事なしのみ', asaOk:2,
+    bath:false, left:'残り1部屋',
+    good:'ビル1フロアを3人で貸切。広さは断トツ',
+    bad:'口コミがまだない。価格は候補中で最高' },
+  { n:'旅籠 小龍', yad:'340064', sc:null, rv:0, price:95700, plan:'素泊まり（和室）',
+    loc:'電停「デンテツターミナルビル前」徒歩3分', locOk:1,
+    asa:'素泊まりのみ', asaOk:2,
+    bath:null, left:'残り1部屋',
+    good:'幕末の空気が残る和の宿',
+    bad:'口コミがまだない' }
+];
+var SOLDOUT = ['OMO7高知 by 星野リゾート','高知サンライズホテル','高知城下の天然温泉 三翠園',
+  'オリエントホテル高知（本館）','天然温泉 紺碧の湯 ドーミーイン高知','リッチモンドホテル高知'];
 
 /* ══ 定休日グリッド ══ */
 var GRID = [
@@ -515,9 +625,12 @@ function renderNext(){
 
 /* ══ 決まっていること ══ */
 function renderFixed(){
+  var yado = S.dec.q4 === '吉萬' ? 'オリエントホテル高知 和風別館 吉萬　3泊・3名1室'
+           : S.dec.q4 === 'セブンデイズ' ? 'セブンデイズホテルプラス　3泊・3名1室・素泊まり'
+           : '未定（OMO7高知が満室。宿タブで比較中）';
   var rows = [
     ['日程', S.dec.q1 === '10月で考え直す' ? '10月で再検討（未確定）' : '11月7日(土) 〜 10日(火)'],
-    ['宿',   'OMO7高知　3泊・3名1室・朝食付き'],
+    ['宿',   yado],
     ['行き', '東京2名は空路／京都1名は鉄道。16:00に宿で合流'],
     ['帰り', S.dec.q2 === '帰りに京都へ寄る' ? '鉄道で岡山経由・京都へ（要組み直し）' : '3名そろって空路で羽田へ'],
     ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
@@ -681,7 +794,7 @@ function renderAsks(){
     b.addEventListener('click', function(){
       var q = b.dataset.q, o = b.dataset.o;
       S.dec[q] = (S.dec[q] === o) ? '' : o; save();
-      renderAsks(); renderRings(); renderNext(); renderFixed(); renderPlan();
+      renderAsks(); renderRings(); renderNext(); renderFixed(); renderPlan(); renderHotels();
     });
   });
 }
@@ -759,6 +872,56 @@ function renderReqs(){
   }).join('');
 }
 
+/* ══ 宿くらべ ══ */
+var staySort = 'osusume';
+function yen(n){ return n.toLocaleString('ja-JP'); }
+function renderSortbar(){
+  var ops = [['osusume','おすすめ順'],['yasui','安い順'],['kuchikomi','口コミが多い順']];
+  document.getElementById('sortbar').innerHTML = ops.map(function(o){
+    return '<button data-s="' + o[0] + '"' + (staySort===o[0] ? ' class="on"' : '') + '>' + o[1] + '</button>';
+  }).join('');
+  document.querySelectorAll('#sortbar button').forEach(function(b){
+    b.addEventListener('click', function(){ staySort = b.dataset.s; renderSortbar(); renderHotels(); });
+  });
+}
+function renderHotels(){
+  var list = HOTELS.slice();
+  if(staySort === 'yasui') list.sort(function(a,b){ return a.price - b.price; });
+  else if(staySort === 'kuchikomi') list.sort(function(a,b){ return b.rv - a.rv; });
+  var sel = S.dec.q4;
+  document.getElementById('hotellist').innerHTML = list.map(function(h, i){
+    var chosen = (sel === '吉萬' && /吉萬/.test(h.n)) || (sel === 'セブンデイズ' && /セブンデイズ/.test(h.n));
+    var top = (staySort === 'osusume' && i < 2) || chosen;
+    var perNight = Math.round(h.price / 9);
+    var url = 'https://www.jalan.net/yad' + h.yad + '/plan/?stayYear=2026&stayMonth=11&stayDay=7&stayCount=3&roomCount=1&adultNum=3';
+    var bath = h.bath === true ? '<span class="mark y">あり</span>'
+             : h.bath === false ? '<span class="mark n">なし</span>'
+             : '<span class="mark n">未確認</span>';
+    return '<div class="hcard' + (top ? ' top' : '') + '">' +
+      '<div class="hn">' + esc(h.n) + (chosen ? '<span class="bdg ok">これにする</span>' : '') + '</div>' +
+      '<div class="hmeta">' +
+        (h.sc ? '<span class="hsc">★ ' + h.sc.toFixed(1) + '</span><span class="hrv">口コミ ' + yen(h.rv) + '件</span>'
+              : '<span class="hrv">口コミはまだありません</span>') +
+        (h.left !== '—' ? '<span class="hleft">' + esc(h.left) + '</span>' : '') +
+      '</div>' +
+      '<div class="hprice"><span class="p1">' + yen(h.price) + '円</span>' +
+        '<span class="p2">3泊3名／1人1泊 約' + yen(perNight) + '円</span></div>' +
+      '<div class="hrow"><div class="k">プラン</div><div class="v ok">' + esc(h.plan) + '</div></div>' +
+      '<div class="hrow"><div class="k">立地</div><div class="v' + (h.locOk ? ' ok' : '') + '">' + esc(h.loc) + '</div></div>' +
+      '<div class="hrow"><div class="k">朝食</div><div class="v' + (h.asaOk>1 ? ' ok' : '') + '">' + esc(h.asa) + '</div></div>' +
+      '<div class="hrow"><div class="k">大浴場</div><div class="v">' + bath + '</div></div>' +
+      '<div class="hgood">' + esc(h.good) + '</div>' +
+      '<div class="hbad">' + esc(h.bad) + '</div>' +
+      '<a class="hlink" target="_blank" rel="noopener" href="' + url + '">じゃらんで見る</a>' +
+      '</div>';
+  }).join('');
+}
+function renderSoldout(){
+  document.getElementById('soldout').innerHTML =
+    SOLDOUT.map(function(s){ return '<b>' + esc(s) + '</b>'; }).join('　／　') +
+    '<br>いずれも11/7からの3泊・3名1室が埋まりました。とくにオリエントホテル高知（本館）は「じゃらんアワード 朝食部門 中国・四国1位」、ドーミーインは天然温泉つきで、朝食狙いなら本命でした。';
+}
+
 /* ══ タブ ══ */
 function goTab(name){
   document.querySelectorAll('#tabs button').forEach(function(x){ x.classList.toggle('on', x.dataset.p === name); });
@@ -774,6 +937,7 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 /* ══ 起動 ══ */
 renderCountdown(); renderRings(); renderNext(); renderFixed(); renderMealChart();
 renderDays(); renderPlan(); renderDayBar();
+renderSortbar(); renderHotels(); renderSoldout();
 renderAsks(); renderGrid(); renderBooks();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
 
