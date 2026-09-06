@@ -164,6 +164,25 @@
   .note b{color:var(--hi);}
 
   /* ── 宿くらべ ── */
+  /* 行き方・帰り方 */
+  .mv{background:var(--card);border-radius:12px;padding:14px;margin-bottom:9px;}
+  .mv .mvh{font-size:14px;font-weight:700;margin-bottom:2px;}
+  .mv .mvs{font-size:11.5px;color:var(--sub);margin-bottom:11px;}
+  .grp{display:flex;gap:6px;margin-bottom:12px;}
+  .grp button{
+    flex:1;-webkit-appearance:none;appearance:none;font-family:inherit;cursor:pointer;
+    border:1px solid var(--line);background:#fff;color:var(--sub);
+    font-size:12.5px;font-weight:700;border-radius:99px;padding:7px 0;
+  }
+  .grp button.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .leg{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);}
+  .leg.first{border-top:none;padding-top:0;}
+  .leg .lt{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--sub);}
+  .leg .la{font-size:13.5px;font-weight:700;line-height:1.45;}
+  .leg .lb{font-size:11.5px;color:var(--sub);margin-top:2px;line-height:1.55;}
+  .leg.key .lt,.leg.key .la{color:var(--accent);}
+  .mvfare{margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:11.5px;color:var(--sub);}
+
   .policy{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;}
   .policy ol{margin:0;padding-left:1.3em;}
   .policy li{font-size:13px;line-height:1.8;color:var(--sub);}
@@ -255,8 +274,9 @@
       <div id="days"></div>
       <div class="daytitle" id="daytitle"></div>
       <div class="card" style="padding:14px 14px 10px"><div id="dayBar"></div></div>
+      <div id="moveCard"></div>
       <div class="card" id="planlist"></div>
-      <div class="note"><b>宿が未定です。</b>この旅程はOMO7高知を前提に組んであるので、<b>集合場所・大浴場・よさこいLIVE・チェックアウト時刻</b>は宿が決まったら差し替えます。食事と外の予定は変わりません。</div>
+      <div class="note"><b>宿はまだ2択です。</b>高知ホテル（高知駅 徒歩1分）とセブンデイズホテルプラス（日曜市 徒歩2分）で、<b>朝の動き出しと夜の帰り道</b>が変わります。食事と外の予定は同じです。</div>
       <p class="foot">タップでチェックが付きます。時刻は目安です。</p>
     </div>
 
@@ -293,6 +313,7 @@
       <div class="note">立地を1位にしたのは、<b>それが「食べられる量」に直結する</b>からです。昼に一度戻って風呂と仮眠を挟めれば夜また入りますし、屋台安兵衛（翌3時まで）から歩いて帰れて、日曜市にも寝起きで行けます。</div>
 
       <h2>候補</h2>
+      <p class="lead"><b>いまは「高知ホテル」と「セブンデイズホテルプラス」の2択で進めています。</b>左に色の線が付いているのがその2軒です。残りは比べるために置いてあります。</p>
       <div class="sortbar" id="sortbar"></div>
       <div id="hotellist"></div>
 
@@ -344,7 +365,7 @@
    保存するもの（この端末の中だけ。外には出ない）
    ══════════════════════════════════════════════ */
 var KEY = 'ntvhm8';
-var S = { done:{}, book:{}, dec:{} };
+var S = { done:{}, book:{}, dec:{}, grp:'tokyo' };
 try{ var raw = localStorage.getItem(KEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
@@ -352,24 +373,24 @@ var TRIP_START = '2026-11-07';
 
 /* ══ 旅程 ══ */
 var DAYS = [
-  { id:'d1', md:'11/7', w:'土', title:'集合して、いきなり本番', items:[
-    { t:'13:39', c:'move', a:'京都組 高知着', b:'京都を9時台の「のぞみ」→ 岡山11:05発の特急「南風」' },
-    { t:'15:05', c:'move', a:'東京組 空港着', b:'JAL495。空港連絡バスで「菜園場町」下車、徒歩3分' },
-    { t:'16:00', c:'rest', a:'OMO7高知に集合', b:'チェックイン。荷物を置く' },
-    { t:'17:00', c:'food', m:'軽', a:'土佐の豊穣祭', b:'中央公園（帯屋町）。10:00〜21:00、入場無料' },
+  { id:'d1', md:'11/7', w:'土', title:'昼前に合流、そのまま本番', items:[
+    { t:'11:27', c:'move', a:'東京組 高知駅着', b:'JAL493（羽田9:15発）→ 空港連絡バス' },
+    { t:'11:30', c:'move', a:'京都組 高知駅着', b:'のぞみ103号（京都7:41発）→ 特急 南風3号' },
+    { t:'11:45', c:'rest', a:'宿に荷物を預ける', b:'チェックインは15:00から。荷物だけ先に預かってもらう' },
+    { t:'12:30', c:'food', m:'軽', a:'土佐の豊穣祭で昼', b:'中央公園（帯屋町）。この日は10:00〜21:00、入場無料' },
+    { t:'15:00', c:'rest', a:'チェックイン・休憩', b:'' },
     { t:'19:00', c:'food', m:'本番', a:'酔鯨亭', b:'クジラ料理20種。はりまや橋 徒歩3分。要予約' },
     { t:'21:30', c:'food', m:'軽', a:'屋台安兵衛 本店', b:'廿代町。土曜は翌4:00まで。日曜が定休なので初日に' }
   ]},
   { id:'d2', md:'11/8', w:'日', title:'朝から晩まで食べる日', items:[
-    { t:'7:00',  c:'food', m:'軽', a:'宿の朝食ビュッフェ', b:'この日は日曜市があるので軽めに' },
+    { t:'7:00',  c:'food', m:'軽', a:'朝は軽く', b:'このあと日曜市で食べるので控えめに' },
     { t:'8:20',  c:'food', m:'軽', a:'日曜市', b:'追手筋。田舎寿司、揚げたての芋天、ところてん。14時ごろまで' },
     { t:'10:00', c:'food', m:'軽', a:'土佐の豊穣祭 2日目', b:'日曜市から徒歩数分。10:00〜18:00' },
     { t:'12:30', c:'move', a:'MY遊バスで移動', b:'桂浜券 大人1,500円。路面電車も無料になります' },
     { t:'13:10', c:'see',  a:'坂本龍馬記念館', b:'「龍馬記念館前」下車 徒歩2分。入館は16:30まで' },
     { t:'14:30', c:'see',  a:'桂浜', b:'記念館から同じ路線で数分' },
-    { t:'16:30', c:'rest', a:'宿に戻る・大浴場', b:'トサノユ（内湯・露天・サウナ）' },
-    { t:'18:30', c:'food', m:'本番', a:'明神丸 本店', b:'藁焼き鰹たたき。電停「堀詰」徒歩1分。要予約' },
-    { t:'21:00', c:'see',  a:'よさこい楽宴LIVE', b:'1階の大階段で21:00〜21:30。宿泊者は無料' }
+    { t:'16:30', c:'rest', a:'宿に戻って休む', b:'夜に備えて一度仕切り直す' },
+    { t:'18:30', c:'food', m:'本番', a:'明神丸 本店', b:'藁焼き鰹たたき。電停「堀詰」徒歩1分。要予約' }
   ]},
   { id:'d3', md:'11/9', w:'月', title:'カツオの本場・久礼へ', items:[
     { t:'7:30',  c:'food', m:'軽', a:'宿の朝食', b:'昼まで食べないので、しっかり' },
@@ -378,21 +399,49 @@ var DAYS = [
     { t:'14:00', c:'rest', a:'黒潮本陣で日帰り温泉', b:'久礼湾を見下ろす高台。送迎と入浴時間は要電話確認' },
     { t:'17:00', c:'move', a:'高知へ戻る', b:'' },
     { t:'19:00', c:'food', m:'本番', a:'草や または どんこ', b:'酔鯨亭は月曜定休。決めるタブで選べます' },
-    { t:'21:00', c:'see',  a:'よさこい楽宴LIVE', b:'2回目' },
     { t:'22:00', c:'food', m:'軽', a:'屋台安兵衛（予備）', b:'初日に行けなかった場合の予備' }
   ]},
   { id:'d4', md:'11/10', w:'火', title:'緑と市場、そして帰路', items:[
     { t:'7:00',  c:'food', m:'軽', a:'最後の朝食', b:'' },
-    { t:'8:30',  c:'rest', a:'チェックアウト', b:'荷物は宿に預ける。本来は11:00まで' },
+    { t:'8:30',  c:'rest', a:'チェックアウト', b:'荷物は宿に預ける。時刻は宿が決まったら確認' },
     { t:'9:00',  c:'move', a:'MY遊バスで五台山へ', b:'五台山券 大人1,000円' },
     { t:'9:40',  c:'see',  a:'牧野植物園', b:'9:00〜17:00（最終入園16:30）' },
     { t:'11:00', c:'food', m:'軽', a:'レストラン C.L.GARDEN', b:'植物研究交流センター3階' },
     { t:'12:30', c:'food', m:'軽', a:'ひろめ市場で最後の昼', b:'火曜の昼は空いています' },
-    { t:'14:00', c:'move', a:'宿で荷物を受け取る', b:'' },
-    { t:'14:30', c:'move', a:'空港連絡バス', b:'「菜園場町」から約25分。時刻は要確認' },
-    { t:'16:00', c:'move', a:'高知発 JAL496', b:'羽田 17:20着。3名そろって' }
+    { t:'14:30', c:'move', a:'宿で荷物を受け取る', b:'' },
+    { t:'15:10', c:'move', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば。約30分・900円' },
+    { t:'16:25', c:'move', a:'高知発 JAL496', b:'羽田 17:45着。3名そろって' }
   ]}
 ];
+
+/* ══ 行き方・帰り方（2026-09-06 Yahoo!路線情報調べ・11/7と11/10で検索） ══ */
+var TRIP = {
+  go: {
+    tokyo: { legs:[
+      { t:'7:28',  a:'代々木上原 発', b:'東京メトロ千代田線 我孫子行／3番線' },
+      { t:'7:44',  a:'日比谷 着',     b:'駅の中を歩いて有楽町へ（3分）' },
+      { t:'7:59',  a:'有楽町 発',     b:'JR山手線 外回り・品川方面／3番線' },
+      { t:'8:10',  a:'浜松町 発',     b:'東京モノレール 空港快速' },
+      { t:'8:26',  a:'羽田空港 第1ターミナル 着', b:'JALは第1。出発の49分前' },
+      { t:'9:15',  a:'JAL493 羽田発', b:'', k:1 },
+      { t:'10:40', a:'高知龍馬空港 着', b:'1時間25分', k:1 },
+      { t:'10:50', a:'空港連絡バス',   b:'2のりば。預け荷物があるときは次の11:20発に（高知駅11:45着）' },
+      { t:'11:27', a:'高知駅 着',      b:'', k:1 }
+    ], fare:'代々木上原→羽田 883円／空港バス 900円' },
+    kyoto: { legs:[
+      { t:'7:41',  a:'京都 発',   b:'JR新幹線 のぞみ103号 博多行／13番線', k:1 },
+      { t:'8:41',  a:'岡山 着',   b:'乗り換え11分。在来線ホームへ' },
+      { t:'8:52',  a:'岡山 発',   b:'JR特急 南風3号 高知行／6番線。岡山始発なので座れます', k:1 },
+      { t:'11:30', a:'高知 着',   b:'3時間49分・乗り換え1回', k:1 }
+    ], fare:'京都→高知 12,860円（自由席）' }
+  },
+  back: { legs:[
+    { t:'15:10', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば' },
+    { t:'15:40', a:'高知龍馬空港 着', b:'出発の45分前' },
+    { t:'16:25', a:'JAL496 高知発', b:'', k:1 },
+    { t:'17:45', a:'羽田空港 着', b:'', k:1 }
+  ], fare:'空港バス 900円' }
+};
 
 /* ══ 決めること ══ */
 var ASKS = [
@@ -406,8 +455,8 @@ var ASKS = [
     a:'草やは6,000円のコースで田舎寿司つき・要予約。11/8の朝に日曜市で田舎寿司を食べるので、かぶるのが嫌なら「どんこ」（清水さばの寿司）。',
     opts:['草や','どんこ'] },
   { id:'q4', q:'宿はどこにするか',
-    a:'OMO7高知が満室になったので選び直しです。方針に忠実で安いのが「吉萬」、立地と口コミの多さなら「セブンデイズ」。宿タブで並べて比べられます。',
-    opts:['吉萬','セブンデイズ'] }
+    a:'この2軒まで絞りました。高知ホテルは高知駅 徒歩1分で、初日の合流・久礼への往復・最終日の空港バスが最短。セブンデイズは日曜市 徒歩2分で、11/8の朝と夜の飲み歩きが楽。宿タブで並べて比べられます。',
+    opts:['高知ホテル','セブンデイズ'] }
 ];
 
 /* ══ 宿の候補（2026-09-03 じゃらん調べ・3泊 大人3名 1室） ══ */
@@ -625,14 +674,14 @@ function renderNext(){
 
 /* ══ 決まっていること ══ */
 function renderFixed(){
-  var yado = S.dec.q4 === '吉萬' ? 'オリエントホテル高知 和風別館 吉萬　3泊・3名1室'
-           : S.dec.q4 === 'セブンデイズ' ? 'セブンデイズホテルプラス　3泊・3名1室・素泊まり'
-           : '未定（OMO7高知が満室。宿タブで比較中）';
+  var yado = S.dec.q4 === '高知ホテル' ? '高知ホテル　3泊・3名1室（高知駅 徒歩1分）'
+           : S.dec.q4 === 'セブンデイズ' ? 'セブンデイズホテルプラス　3泊・3名1室（日曜市 徒歩2分）'
+           : '未定（高知ホテル か セブンデイズ の2択）';
   var rows = [
-    ['日程', S.dec.q1 === '10月で考え直す' ? '10月で再検討（未確定）' : '11月7日(土) 〜 10日(火)'],
+    ['日程', S.dec.q1 === '10月で考え直す' ? '10月で再検討（未確定）' : '11月7日(土) 〜 10日(火)　確定'],
     ['宿',   yado],
-    ['行き', '東京2名は空路／京都1名は鉄道。16:00に宿で合流'],
-    ['帰り', S.dec.q2 === '帰りに京都へ寄る' ? '鉄道で岡山経由・京都へ（要組み直し）' : '3名そろって空路で羽田へ'],
+    ['行き', '東京2名 代々木上原7:28→JAL493／京都1名 京都7:41→南風3号。11:30に高知駅で合流'],
+    ['帰り', S.dec.q2 === '帰りに京都へ寄る' ? '鉄道で岡山経由・京都へ（要組み直し）' : '3名そろって JAL496（高知16:25→羽田17:45）'],
     ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
   ];
   document.getElementById('fixedList').innerHTML = rows.map(function(r){
@@ -755,7 +804,7 @@ function renderDays(){
            '<span class="d1">' + d.w + '</span><span class="d2">' + d.md + '</span></button>';
   }).join('');
   document.querySelectorAll('#days button').forEach(function(b){
-    b.addEventListener('click', function(){ curDay = +b.dataset.i; renderDays(); renderPlan(); renderDayBar(); });
+    b.addEventListener('click', function(){ curDay = +b.dataset.i; renderDays(); renderPlan(); renderDayBar(); renderMove(); });
   });
 }
 function renderPlan(){
@@ -776,6 +825,38 @@ function renderPlan(){
       var k = el.dataset.k; S.done[k] = !S.done[k]; save();
       el.classList.toggle('done', !!S.done[k]);
     });
+  });
+  renderMove();
+}
+
+/* ══ 行き方・帰り方（旅程タブの、その日にだけ出る） ══ */
+function renderMove(){
+  var el = document.getElementById('moveCard');
+  var id = DAYS[curDay].id, html = '';
+  function legs(a){
+    return a.map(function(l, i){
+      return '<div class="leg' + (i===0 ? ' first' : '') + (l.k ? ' key' : '') + '">' +
+        '<div class="lt">' + esc(l.t) + '</div><div><div class="la">' + esc(l.a) + '</div>' +
+        (l.b ? '<div class="lb">' + esc(l.b) + '</div>' : '') + '</div></div>';
+    }).join('');
+  }
+  if(id === 'd1'){
+    var g = (S.grp === 'kyoto') ? 'kyoto' : 'tokyo';
+    var t = TRIP.go[g];
+    html = '<div class="mv"><div class="mvh">行き方</div>' +
+      '<div class="mvs">自分の組を選んでください。11:30に高知駅で合流します</div>' +
+      '<div class="grp">' +
+        '<button data-g="tokyo"' + (g==='tokyo' ? ' class="on"' : '') + '>東京組 2名</button>' +
+        '<button data-g="kyoto"' + (g==='kyoto' ? ' class="on"' : '') + '>京都組 1名</button>' +
+      '</div>' + legs(t.legs) + '<div class="mvfare">' + esc(t.fare) + '</div></div>';
+  } else if(id === 'd4'){
+    html = '<div class="mv"><div class="mvh">帰り方</div>' +
+      '<div class="mvs">3名そろって同じ便です</div>' +
+      legs(TRIP.back.legs) + '<div class="mvfare">' + esc(TRIP.back.fare) + '</div></div>';
+  }
+  el.innerHTML = html;
+  el.querySelectorAll('.grp button').forEach(function(b){
+    b.addEventListener('click', function(){ S.grp = b.dataset.g; save(); renderMove(); });
   });
 }
 
@@ -890,8 +971,9 @@ function renderHotels(){
   else if(staySort === 'kuchikomi') list.sort(function(a,b){ return b.rv - a.rv; });
   var sel = S.dec.q4;
   document.getElementById('hotellist').innerHTML = list.map(function(h, i){
-    var chosen = (sel === '吉萬' && /吉萬/.test(h.n)) || (sel === 'セブンデイズ' && /セブンデイズ/.test(h.n));
-    var top = (staySort === 'osusume' && i < 2) || chosen;
+    var shortlist = /^高知ホテル/.test(h.n) || /セブンデイズ/.test(h.n);
+    var chosen = (sel === '高知ホテル' && /^高知ホテル/.test(h.n)) || (sel === 'セブンデイズ' && /セブンデイズ/.test(h.n));
+    var top = shortlist;
     var perNight = Math.round(h.price / 9);
     var url = 'https://www.jalan.net/yad' + h.yad + '/plan/?stayYear=2026&stayMonth=11&stayDay=7&stayCount=3&roomCount=1&adultNum=3';
     var bath = h.bath === true ? '<span class="mark y">あり</span>'
@@ -936,7 +1018,7 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 
 /* ══ 起動 ══ */
 renderCountdown(); renderRings(); renderNext(); renderFixed(); renderMealChart();
-renderDays(); renderPlan(); renderDayBar();
+renderDays(); renderPlan(); renderDayBar(); renderMove();
 renderSortbar(); renderHotels(); renderSoldout();
 renderAsks(); renderGrid(); renderBooks();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
