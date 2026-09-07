@@ -179,6 +179,7 @@
   .hwin{margin:0;padding-left:1.3em;}
   .hwin li{font-size:13.5px;line-height:1.7;margin-bottom:7px;}
   .hwin li:last-child{margin-bottom:0;}
+  .item.lock{cursor:default;}
 
   /* ── 宿くらべ ── */
   /* 行き方・帰り方 */
@@ -319,22 +320,19 @@
     <div class="pane" id="p-stay">
       <h2>泊まるところ</h2>
       <div class="hfix">
-        <div class="hfn">高知ホテル<span class="bdg ok">決定</span></div>
+        <div class="hfn">高知ホテル<span class="bdg ok">予約済み</span></div>
         <div class="hfa">高知市駅前町4-10<br><b>JR高知駅 南口を出て徒歩1分</b>（駅から建物が見えます）</div>
         <dl class="hfg">
           <div><dt>電話</dt><dd><a href="tel:0888228008">088-822-8008</a></dd></div>
           <div><dt>チェックイン</dt><dd>15:00〜</dd></div>
           <div><dt>チェックアウト</dt><dd>10:00まで</dd></div>
-          <div><dt>部屋</dt><dd>ツインB 32㎡・3名1室<br>シモンズ製ベッド2台＋エキストラベッド1台</dd></div>
-          <div><dt>朝食</dt><dd>2階でバイキング 6:45〜9:30（L.O.9:15）</dd></div>
-          <div><dt>料金</dt><dd>3泊3名で 89,490円<br>じゃらんの連泊割・素泊まり</dd></div>
+          <div><dt>部屋</dt><dd><b>禁煙</b>のツイン 32㎡・3名1室<br>シモンズ製ベッド2台＋エキストラベッド1台</dd></div>
+          <div><dt>食事</dt><dd>素泊まり<br>朝食を頼む場合は2階で6:45〜9:30（L.O.9:15）</dd></div>
+          <div><dt>目安の料金</dt><dd>3泊3名で 89,490円<br>じゃらんの連泊割・素泊まりで調べた額です。実際の金額は予約の控えを見てください</dd></div>
         </dl>
-        <a class="hlink" href="https://www.jalan.net/yad386784/plan/?stayYear=2026&stayMonth=11&stayDay=7&stayCount=3&roomCount=1&adultNum=3" target="_blank" rel="noopener">じゃらんで予約する</a>
       </div>
 
-      <div class="note warn"><b>先に知っておいてほしいこと。</b><br>
-        <b>1. 3名1室は喫煙室しか出ていません。</b>この宿に禁煙のツインはありますが、11/7からの3泊・3名で検索すると、じゃらんでも公式サイトでも<b>「喫煙・32平米ツインB」1種類しか出てきません</b>。気になるようなら電話（088-822-8008）で禁煙室の空きを聞いてみてください。<br>
-        <b>2. 大浴場はありません。</b>お風呂は部屋のユニットバスだけです。昼に戻って湯に浸かる想定なら、11/9の黒潮本陣の温泉が唯一の機会になります。</div>
+      <div class="note"><b>大浴場はありません。</b>お風呂は部屋のユニットバスだけです。この旅で湯に浸かれるのは<b>11/9の黒潮本陣</b>だけになります。</div>
 
       <h2>駅前がいちばん効く場面</h2>
       <div class="card">
@@ -347,8 +345,8 @@
         <p class="cap">逆に弱いのは<b>11/8の朝の日曜市</b>です。追手筋まで<b>徒歩15分</b>。路面電車だと「はりまや橋」で乗り換えが要って22分かかるので、<b>歩いたほうが早い</b>です。8:20に着きたいなら8:00にホテルを出てください。</p>
       </div>
 
-      <h2>朝食をどうするか</h2>
-      <div class="note">いまは<b>素泊まり</b>で見ています。朝食を付けると3泊3名で<b>13,350円</b>上がります（1人1泊 1,483円）。ここの朝食バイキングは口コミの評価が高いのですが、<b>朝にお腹をいっぱいにすると昼と夜が入らなくなる</b>のが今回の趣旨と噛み合いません。11/8の朝は日曜市で田舎寿司を食べる予定です。</div>
+      <h2>朝食を付けなかった理由</h2>
+      <div class="note"><b>素泊まりです。</b>ここの朝食バイキングは口コミの評価が高いのですが、<b>朝にお腹をいっぱいにすると昼と夜が入らなくなる</b>のが今回の趣旨と噛み合いません。11/8の朝は日曜市で田舎寿司を食べます。当日ふらっと食べたくなったら、2階で6:45から開いています。</div>
 
       <h2>比べた宿（記録）</h2>
       <p class="lead">選ぶときに並べた6軒です。もう決まったので、記録として残してあります。</p>
@@ -415,7 +413,7 @@ var DAYS = [
     { t:'11:30', c:'move', a:'京都組 高知駅着', b:'のぞみ103号（京都7:41発）→ 特急 南風3号' },
     { t:'11:35', c:'rest', a:'高知ホテルに荷物を預ける', b:'高知駅 南口から徒歩1分。チェックインは15:00から' },
     { t:'12:30', c:'food', m:'軽', a:'土佐の豊穣祭で昼', b:'中央公園（帯屋町）。ホテルから徒歩15分。この日は10:00〜21:00、入場無料' },
-    { t:'15:00', c:'rest', a:'チェックイン・休憩', b:'ツインB 32平米。3名1室' },
+    { t:'15:00', c:'rest', a:'チェックイン・休憩', b:'禁煙ツイン 32平米。3名1室' },
     { t:'19:00', c:'food', m:'本番', a:'酔鯨亭', b:'クジラ料理20種。はりまや橋 徒歩3分。要予約' },
     { t:'21:30', c:'food', m:'軽', a:'屋台安兵衛 本店', b:'廿代町。土曜は翌4:00まで。日曜が定休なので初日に' }
   ]},
@@ -512,7 +510,7 @@ var HOTELS = [
     asa:'素泊まりあり。朝食バイキングも選べる（6:45〜9:30）', asaOk:1,
     bath:false, left:'残り2部屋',
     good:'口コミ515件で4.2。駅前で移動が楽。32平米にベッド3台',
-    bad:'日曜市・帯屋町から遠い。大浴場なし。3名室は喫煙のみ' },
+    bad:'日曜市・帯屋町から遠い。大浴場なし' },
   { n:'JRクレメントイン高知', yad:'302237', sc:4.1, rv:587, price:107400, plan:'素泊まり',
     loc:'JR高知駅 徒歩2分（帯屋町からは遠い）', locOk:0,
     asa:'素泊まりあり。朝食は選べる和洋の定食', asaOk:1,
@@ -556,7 +554,7 @@ var DIST = [
 
 /* ══ 予約 ══ */
 var BOOKS = [
-  { id:'b1', a:'高知ホテル 3泊・3名1室・素泊まり', b:'じゃらんの連泊割で89,490円。残り2部屋' },
+  { id:'b1', a:'高知ホテル 3泊・3名1室・禁煙・素泊まり', b:'予約済み', fix:true },
   { id:'b2', a:'JAL特典航空券 往路2枚・復路3枚', b:'必要マイルは空席状況で上がります' },
   { id:'b3', a:'酔鯨亭（11/7 夜）', b:'クジラ目当てなので押さえておきたい' },
   { id:'b4', a:'明神丸 本店（11/8 夜）', b:'座敷は埋まりやすい' },
@@ -643,7 +641,7 @@ function toast(m){
 }
 
 function decCount(){ var n=0; ASKS.forEach(function(a){ if(S.dec[a.id]) n++; }); return n; }
-function bookCount(){ var n=0; BOOKS.forEach(function(b){ if(S.book[b.id]) n++; }); return n; }
+function bookCount(){ var n=0; BOOKS.forEach(function(b){ if(b.fix || S.book[b.id]) n++; }); return n; }
 
 /* ══ 上の帯 ══ */
 function renderCountdown(){
@@ -912,11 +910,13 @@ function renderAsks(){
 }
 function renderBooks(){
   document.getElementById('booklist').innerHTML = BOOKS.map(function(x){
-    return '<div class="item' + (S.book[x.id] ? ' done' : '') + '" data-b="' + x.id + '">' +
-      '<div class="box">' + CHECK + '</div><div class="tx"><div class="t1">' + esc(x.a) + '</div>' +
+    var done = x.fix || S.book[x.id];
+    return '<div class="item' + (done ? ' done' : '') + (x.fix ? ' lock' : '') + '" data-b="' + x.id + '">' +
+      '<div class="box">' + CHECK + '</div><div class="tx"><div class="t1">' + esc(x.a) +
+      (x.fix ? '<span class="bdg ok">済</span>' : '') + '</div>' +
       (x.b ? '<div class="t2">' + esc(x.b) + '</div>' : '') + '</div></div>';
   }).join('');
-  document.querySelectorAll('#booklist .item').forEach(function(el){
+  document.querySelectorAll('#booklist .item:not(.lock)').forEach(function(el){
     el.addEventListener('click', function(){
       var k = el.dataset.b; S.book[k] = !S.book[k]; save();
       el.classList.toggle('done', !!S.book[k]);
