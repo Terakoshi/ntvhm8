@@ -301,7 +301,7 @@
     <!-- ══ 決める ══ -->
     <div class="pane" id="p-decide">
       <h2>決めること</h2>
-      <p class="lead">3つとも決まれば、あとは予約するだけになります。</p>
+      <p class="lead">日程・宿・京都に寄るかは決まりました。残っているのは<b>11/9の夜をどこにするか</b>だけです。</p>
       <div id="asklist"></div>
       <button class="btn" id="copyBtn">決まったことをコピーしてDiscordに貼る</button>
 
@@ -313,7 +313,7 @@
 
       <h2>予約が要るもの</h2>
       <div class="card" id="booklist"></div>
-      <p class="foot">上の3つが決まってから予約に進むのが安全です。</p>
+      <p class="foot">11/9の夜が決まらないと「11/9の夜の店」は押さえられません。ほかは先に進められます。</p>
     </div>
 
     <!-- ══ 宿 ══ -->
@@ -480,12 +480,6 @@ var TRIP = {
 
 /* ══ 決めること ══ */
 var ASKS = [
-  { id:'q1', q:'日程は11月7日〜10日でいい？',
-    a:'11月にしないと「土佐の豊穣祭」（11/7・8）は外れます。戻り鰹の脂が一番のるのも10月末〜11月。玄の「10/3・10/11〜13・10/19はダメ」とは重なりません。',
-    opts:['11/7〜10で確定','10月で考え直す'] },
-  { id:'q2', q:'行きか帰りに京都へ寄る？',
-    a:'いまの案は帰りに3人とも羽田へ飛ぶので、寄る余地がありません。寄るなら帰りを鉄道（高知→岡山→京都）に戻すことになり、マイルの使い方も変わります。',
-    opts:['寄らない（今の案のまま）','帰りに京都へ寄る'] },
   { id:'q3', q:'11/9の夜は、草やか、どんこか',
     a:'草やは6,000円のコースで田舎寿司つき・要予約。11/8の朝に日曜市で田舎寿司を食べるので、かぶるのが嫌なら「どんこ」（清水さばの寿司）。',
     opts:['草や','どんこ'] }
@@ -697,7 +691,7 @@ function renderNext(){
     var left = BOOKS.length - bookCount();
     el.innerHTML = '<div class="next ok"><div class="nl">つぎにやること</div>' +
       '<div class="nt">' + (left ? '予約を進める（残り' + left + '件）' : 'すべて完了しました') + '</div>' +
-      '<div class="nb">' + (left ? '決めることは3つとも決まりました。あとは押さえるだけです。' : '決めることも予約も終わっています。') + '</div>' +
+      '<div class="nb">' + (left ? '決めることは全部決まりました。あとは押さえるだけです。' : '決めることも予約も終わっています。') + '</div>' +
       (left ? '<button class="go" id="goDecide" style="background:#0D5C63">決めるタブをひらく</button>' : '') + '</div>';
     var g = document.getElementById('goDecide');
     if(g) g.addEventListener('click', function(){ goTab('decide'); });
@@ -707,10 +701,11 @@ function renderNext(){
 /* ══ 決まっていること ══ */
 function renderFixed(){
   var rows = [
-    ['日程', S.dec.q1 === '10月で考え直す' ? '10月で再検討（未確定）' : '11月7日(土) 〜 10日(火)　確定'],
-    ['宿',   '高知ホテル　3泊・3名1室・素泊まり（高知駅 徒歩1分）'],
+    ['日程', '11月7日(土) 〜 10日(火)　確定'],
+    ['宿',   '高知ホテル　3泊・3名1室・禁煙・素泊まり（高知駅 徒歩1分）　予約済み'],
     ['行き', '東京2名 代々木上原7:28→JAL493／京都1名 京都7:41→南風3号。11:30に高知駅で合流'],
-    ['帰り', S.dec.q2 === '帰りに京都へ寄る' ? '鉄道で岡山経由・京都へ（要組み直し）' : '3名そろって JAL496（高知16:25→羽田17:45）'],
+    ['帰り', '3名そろって JAL496（高知16:25→羽田17:45）'],
+    ['ルート', '東京2名は 東京⇄高知 の往復／京都1名は 京都→高知→東京。京都には戻りません'],
     ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
   ];
   document.getElementById('fixedList').innerHTML = rows.map(function(r){
@@ -880,7 +875,7 @@ function renderMove(){
       '</div>' + legs(t.legs) + '<div class="mvfare">' + esc(t.fare) + '</div></div>';
   } else if(id === 'd4'){
     html = '<div class="mv"><div class="mvh">帰り方</div>' +
-      '<div class="mvs">3名そろって同じ便です</div>' +
+      '<div class="mvs">3名そろって同じ便です。京都の1名もそのまま東京へ向かいます</div>' +
       legs(TRIP.back.legs) + '<div class="mvfare">' + esc(TRIP.back.fare) + '</div></div>';
   }
   el.innerHTML = html;
