@@ -201,41 +201,6 @@
   .leg.key .lt,.leg.key .la{color:var(--accent);}
   .mvfare{margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:11.5px;color:var(--sub);}
 
-  .policy{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;}
-  .policy ol{margin:0;padding-left:1.3em;}
-  .policy li{font-size:13px;line-height:1.8;color:var(--sub);}
-  .policy li b{color:var(--ink);font-weight:600;}
-  .hcard{background:var(--card);border-radius:12px;padding:14px;margin-bottom:9px;
-         border-left:4px solid var(--line);}
-  .hcard.top{border-left-color:var(--accent);}
-  .hcard .hn{font-size:16px;font-weight:700;line-height:1.45;}
-  .hcard .hmeta{display:flex;gap:10px;align-items:baseline;margin-top:3px;flex-wrap:wrap;}
-  .hcard .hsc{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
-  .hcard .hrv{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;}
-  .hcard .hleft{font-size:11px;font-weight:700;color:var(--bad);background:var(--bad-bg);
-                border-radius:4px;padding:0 7px;}
-  .hprice{display:flex;align-items:baseline;gap:8px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);}
-  .hprice .p1{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;}
-  .hprice .p2{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;}
-  .hrow{display:flex;gap:8px;font-size:12.5px;line-height:1.65;margin-top:7px;}
-  .hrow .k{flex:none;width:40px;font-weight:700;color:var(--sub);font-size:11.5px;padding-top:1px;}
-  .hrow .v{flex:1;color:var(--sub);}
-  .hrow .v.ok{color:var(--ink);}
-  .mark{display:inline-block;font-size:11px;font-weight:700;border-radius:4px;padding:0 6px;margin-left:5px;}
-  .mark.y{background:var(--soft);color:var(--accent);}
-  .mark.n{background:#EFEFEF;color:#8D9895;}
-  .hgood{font-size:12.5px;line-height:1.7;color:var(--ink);margin-top:8px;}
-  .hbad{font-size:12.5px;line-height:1.7;color:var(--sub);margin-top:3px;}
-  .hlink{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:#fff;
-    background:var(--accent);text-decoration:none;border-radius:8px;padding:8px 16px;}
-  .sortbar{display:flex;gap:6px;margin:12px 4px 10px;}
-  .sortbar button{
-    -webkit-appearance:none;appearance:none;border:1px solid var(--line);font-family:inherit;cursor:pointer;
-    flex:1;background:#fff;color:var(--sub);font-size:12px;font-weight:700;border-radius:99px;padding:6px 0;}
-  .sortbar button.on{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .soldout{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;
-    font-size:12.5px;line-height:1.8;color:var(--sub);}
-  .soldout b{color:var(--ink);}
   .foot{font-size:11.5px;color:#94A09D;line-height:1.8;margin:16px 4px 0;}
 
   #tabs{flex:none;display:flex;background:#fff;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);}
@@ -348,15 +313,7 @@
       <h2>朝食を付けなかった理由</h2>
       <div class="note"><b>素泊まりです。</b>ここの朝食バイキングは口コミの評価が高いのですが、<b>朝にお腹をいっぱいにすると昼と夜が入らなくなる</b>のが今回の趣旨と噛み合いません。11/8の朝は日曜市で田舎寿司を食べます。当日ふらっと食べたくなったら、2階で6:45から開いています。</div>
 
-      <h2>比べた宿（記録）</h2>
-      <p class="lead">選ぶときに並べた6軒です。もう決まったので、記録として残してあります。</p>
-      <div class="sortbar" id="sortbar"></div>
-      <div id="hotellist"></div>
-
-      <h2>満室で消えた宿</h2>
-      <div class="soldout" id="soldout"></div>
-
-      <p class="foot">高知ホテルの情報は2026年9月7日に、じゃらん・公式サイト・楽天トラベルで確認したものです。比較表の価格は9月3日にじゃらんで調べた3泊・大人3名・1室の合計（税込）。</p>
+      <p class="foot">高知ホテルの情報は2026年9月7日に、じゃらん・公式サイト・楽天トラベルで確認したものです。</p>
     </div>
 
     <!-- ══ 候補 ══ -->
@@ -409,8 +366,8 @@ var TRIP_START = '2026-11-07';
 /* ══ 旅程 ══ */
 var DAYS = [
   { id:'d1', md:'11/7', w:'土', title:'昼前に合流、そのまま本番', items:[
-    { t:'11:27', c:'move', a:'東京組 高知駅着', b:'JAL493（羽田9:15発）→ 空港連絡バス' },
-    { t:'11:30', c:'move', a:'京都組 高知駅着', b:'のぞみ103号（京都7:41発）→ 特急 南風3号' },
+    { t:'11:27', c:'move', a:'東京組 高知駅着', b:'代々木上原6:38発 → JAL493（羽田9:15発）→ 空港連絡バス' },
+    { t:'11:30', c:'move', a:'京都組 高知駅着', b:'銀閣寺道6:33発 → のぞみ103号（京都7:41発）→ 特急 南風3号' },
     { t:'11:35', c:'rest', a:'高知ホテルに荷物を預ける', b:'高知駅 南口から徒歩1分。チェックインは15:00から' },
     { t:'12:30', c:'food', m:'軽', a:'土佐の豊穣祭で昼', b:'中央公園（帯屋町）。ホテルから徒歩15分。この日は10:00〜21:00、入場無料' },
     { t:'15:00', c:'rest', a:'チェックイン・休憩', b:'禁煙ツイン 32平米。3名1室' },
@@ -442,9 +399,10 @@ var DAYS = [
     { t:'9:00',  c:'move', a:'MY遊バスで五台山へ', b:'五台山券 大人1,000円' },
     { t:'9:40',  c:'see',  a:'牧野植物園', b:'9:00〜17:00（最終入園16:30）' },
     { t:'11:00', c:'food', m:'軽', a:'レストラン C.L.GARDEN', b:'植物研究交流センター3階' },
-    { t:'12:30', c:'food', m:'軽', a:'ひろめ市場で最後の昼', b:'火曜の昼は空いています' },
-    { t:'14:30', c:'move', a:'ホテルで荷物を受け取る', b:'' },
-    { t:'15:10', c:'move', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば。ホテルから徒歩2分。約30分・900円' },
+    { t:'12:15', c:'food', m:'軽', a:'ひろめ市場で最後の昼', b:'火曜の昼は空いています。13:30には出る' },
+    { t:'13:45', c:'move', a:'ホテルで荷物を受け取る', b:'' },
+    { t:'14:10', c:'move', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば。ホテルから徒歩2分。約32分・900円' },
+    { t:'14:47', c:'move', a:'高知龍馬空港 着', b:'出発の1時間38分前。おみやげを見る時間があります' },
     { t:'16:25', c:'move', a:'高知発 JAL496', b:'羽田 17:45着。3名そろって' }
   ]}
 ];
@@ -453,26 +411,30 @@ var DAYS = [
 var TRIP = {
   go: {
     tokyo: { legs:[
-      { t:'7:28',  a:'代々木上原 発', b:'東京メトロ千代田線 我孫子行／3番線' },
-      { t:'7:44',  a:'日比谷 着',     b:'駅の中を歩いて有楽町へ（3分）' },
-      { t:'7:59',  a:'有楽町 発',     b:'JR山手線 外回り・品川方面／3番線' },
-      { t:'8:10',  a:'浜松町 発',     b:'東京モノレール 空港快速' },
-      { t:'8:26',  a:'羽田空港 第1ターミナル 着', b:'JALは第1。出発の49分前' },
+      { t:'6:38',  a:'代々木上原 発', b:'東京メトロ千代田線 我孫子行／3番線' },
+      { t:'6:54',  a:'日比谷 着',     b:'駅の中を歩いて有楽町へ（3分）' },
+      { t:'7:07',  a:'有楽町 発',     b:'JR京浜東北・根岸線 大船行／4番線' },
+      { t:'7:20',  a:'浜松町 発',     b:'東京モノレール 空港快速' },
+      { t:'7:36',  a:'羽田空港 第1ターミナル 着', b:'JALは第1。出発の1時間39分前' },
       { t:'9:15',  a:'JAL493 羽田発', b:'', k:1 },
       { t:'10:40', a:'高知龍馬空港 着', b:'1時間25分', k:1 },
       { t:'10:50', a:'空港連絡バス',   b:'2のりば。預け荷物があるときは次の11:20発に（高知駅11:45着）' },
       { t:'11:27', a:'高知駅 着',      b:'', k:1 }
     ], fare:'代々木上原→羽田 883円／空港バス 900円' },
     kyoto: { legs:[
+      { t:'6:33',  a:'銀閣寺道 発', b:'京都市営バス 7号（四条河原町・京都駅行）／Cのりば。乗り換えなしで京都駅まで' },
+      { t:'7:02',  a:'京都駅前 着', b:'歩いて駅へ（3分）。ここまで230円' },
+      { t:'7:07',  a:'京都駅 着',   b:'のぞみの34分前。お茶を買う余裕あり' },
       { t:'7:41',  a:'京都 発',   b:'JR新幹線 のぞみ103号 博多行／13番線', k:1 },
       { t:'8:41',  a:'岡山 着',   b:'乗り換え11分。在来線ホームへ' },
       { t:'8:52',  a:'岡山 発',   b:'JR特急 南風3号 高知行／6番線。岡山始発なので座れます', k:1 },
-      { t:'11:30', a:'高知 着',   b:'3時間49分・乗り換え1回', k:1 }
-    ], fare:'京都→高知 12,860円（自由席）' }
+      { t:'11:30', a:'高知 着',   b:'', k:1 }
+    ], fare:'銀閣寺道→京都駅 230円／京都→高知 12,860円（自由席）' }
   },
   back: { legs:[
-    { t:'15:10', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば' },
-    { t:'15:40', a:'高知龍馬空港 着', b:'出発の45分前' },
+    { t:'14:05', a:'ホテルを出る', b:'高知駅バスターミナルまで徒歩2分' },
+    { t:'14:10', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば。約32分・900円' },
+    { t:'14:47', a:'高知龍馬空港 着', b:'出発の1時間38分前', k:1 },
     { t:'16:25', a:'JAL496 高知発', b:'', k:1 },
     { t:'17:45', a:'羽田空港 着', b:'', k:1 }
   ], fare:'空港バス 900円' }
@@ -484,48 +446,6 @@ var ASKS = [
     a:'草やは6,000円のコースで田舎寿司つき・要予約。11/8の朝に日曜市で田舎寿司を食べるので、かぶるのが嫌なら「どんこ」（清水さばの寿司）。',
     opts:['草や','どんこ'] }
 ];
-
-/* ══ 宿の候補（2026-09-03 じゃらん調べ・3泊 大人3名 1室） ══ */
-var HOTELS = [
-  { n:'セブンデイズホテルプラス', yad:'325448', sc:4.0, rv:636, price:97500, plan:'素泊まり（早期割14）',
-    loc:'日曜市・繁華街 徒歩2分／はりまや橋 徒歩5分', locOk:2,
-    asa:'素泊まりあり。朝食はパン中心（和定食は平日のみ）', asaOk:1,
-    bath:false, left:'残り1部屋',
-    good:'立地が候補中で最強。口コミ636件も最多で、清潔感が高評価',
-    bad:'大浴場がない（客室のユニットバスのみ）' },
-  { n:'オリエントホテル高知 和風別館 吉萬', yad:'311049', sc:4.0, rv:213, price:62370, plan:'無料の軽い朝食つき（和室）',
-    loc:'高知駅 徒歩5分／日曜市・はりまや橋も徒歩圏', locOk:1,
-    asa:'無料の軽い朝食つき。方針にぴったり', asaOk:2,
-    bath:true, left:'残り3部屋',
-    good:'方針を最も素直に満たし、しかも一番安い。接客と風呂が高評価',
-    bad:'口コミ213件と少なめ。宿自身が「建物・設備は古い」と明記' },
-  { n:'高知ホテル', yad:'386784', sc:4.2, rv:515, price:89490, plan:'素泊まり（連泊割）',
-    loc:'JR高知駅 徒歩1分（日曜市・帯屋町までは徒歩15分）', locOk:0,
-    asa:'素泊まりあり。朝食バイキングも選べる（6:45〜9:30）', asaOk:1,
-    bath:false, left:'残り2部屋',
-    good:'口コミ515件で4.2。駅前で移動が楽。32平米にベッド3台',
-    bad:'日曜市・帯屋町から遠い。大浴場なし' },
-  { n:'JRクレメントイン高知', yad:'302237', sc:4.1, rv:587, price:107400, plan:'素泊まり',
-    loc:'JR高知駅 徒歩2分（帯屋町からは遠い）', locOk:0,
-    asa:'素泊まりあり。朝食は選べる和洋の定食', asaOk:1,
-    bath:false, left:'残り1部屋',
-    good:'口コミ587件。部屋と清潔感が高評価',
-    bad:'ひろめ市場・帯屋町から離れる。大浴場なし' },
-  { n:'RESIDENCE HARIMAYA', yad:'352915', sc:null, rv:0, price:131650, plan:'食事なし／ビル1フロア貸切 55〜76㎡',
-    loc:'はりまや橋 徒歩2分／ひろめ市場・高知駅 徒歩10分', locOk:2,
-    asa:'食事なしのみ', asaOk:2,
-    bath:false, left:'残り1部屋',
-    good:'ビル1フロアを3人で貸切。広さは断トツ',
-    bad:'口コミがまだない。価格は候補中で最高' },
-  { n:'旅籠 小龍', yad:'340064', sc:null, rv:0, price:95700, plan:'素泊まり（和室）',
-    loc:'電停「デンテツターミナルビル前」徒歩3分', locOk:1,
-    asa:'素泊まりのみ', asaOk:2,
-    bath:null, left:'残り1部屋',
-    good:'幕末の空気が残る和の宿',
-    bad:'口コミがまだない' }
-];
-var SOLDOUT = ['OMO7高知 by 星野リゾート','高知サンライズホテル','高知城下の天然温泉 三翠園',
-  'オリエントホテル高知（本館）','天然温泉 紺碧の湯 ドーミーイン高知','リッチモンドホテル高知'];
 
 /* ══ 定休日グリッド ══ */
 var GRID = [
@@ -590,11 +510,7 @@ var SPOTS = [
     memo:'モーニング9-11、ランチ11-15、カフェ15-17。植物研究交流センター3階' },
   { c:'風呂', n:'黒潮本陣', k:'久礼湾を見下ろす高台の温泉', when:'11/9(月) 14:00',
     ac:'中土佐町久礼（駅からの送迎は要確認）', op:'日帰り入浴あり', cl:'要電話確認',
-    memo:'宿の大浴場は温泉ではないので、温泉はここで' },
-  { c:'宿', n:'OMO7高知 by 星野リゾート', k:'3泊・3名1室・朝食付き', when:'11/7〜11/10',
-    ac:'空港連絡バス「菜園場町」徒歩3分／路面電車「菜園場町」徒歩4分',
-    op:'チェックイン15:00／チェックアウト11:00', cl:'—',
-    memo:'大浴場「トサノユ」は内湯・露天・サウナ。よさこい楽宴LIVEは毎晩21:00〜21:30、宿泊者無料' }
+    memo:'高知ホテルに大浴場がないので、湯に浸かれるのはここだけ' }
 ];
 
 /* ══ リクエスト ══ */
@@ -703,7 +619,7 @@ function renderFixed(){
   var rows = [
     ['日程', '11月7日(土) 〜 10日(火)　確定'],
     ['宿',   '高知ホテル　3泊・3名1室・禁煙・素泊まり（高知駅 徒歩1分）　予約済み'],
-    ['行き', '東京2名 代々木上原7:28→JAL493／京都1名 京都7:41→南風3号。11:30に高知駅で合流'],
+    ['行き', '東京2名 代々木上原6:38→JAL493／京都1名 銀閣寺道6:33→のぞみ103号。11:30に高知駅で合流'],
     ['帰り', '3名そろって JAL496（高知16:25→羽田17:45）'],
     ['ルート', '東京2名は 東京⇄高知 の往復／京都1名は 京都→高知→東京。京都には戻りません'],
     ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
@@ -899,7 +815,7 @@ function renderAsks(){
     b.addEventListener('click', function(){
       var q = b.dataset.q, o = b.dataset.o;
       S.dec[q] = (S.dec[q] === o) ? '' : o; save();
-      renderAsks(); renderRings(); renderNext(); renderFixed(); renderPlan(); renderHotels();
+      renderAsks(); renderRings(); renderNext(); renderFixed(); renderPlan();
     });
   });
 }
@@ -979,55 +895,6 @@ function renderReqs(){
   }).join('');
 }
 
-/* ══ 宿くらべ ══ */
-var staySort = 'osusume';
-function yen(n){ return n.toLocaleString('ja-JP'); }
-function renderSortbar(){
-  var ops = [['osusume','おすすめ順'],['yasui','安い順'],['kuchikomi','口コミが多い順']];
-  document.getElementById('sortbar').innerHTML = ops.map(function(o){
-    return '<button data-s="' + o[0] + '"' + (staySort===o[0] ? ' class="on"' : '') + '>' + o[1] + '</button>';
-  }).join('');
-  document.querySelectorAll('#sortbar button').forEach(function(b){
-    b.addEventListener('click', function(){ staySort = b.dataset.s; renderSortbar(); renderHotels(); });
-  });
-}
-function renderHotels(){
-  var list = HOTELS.slice();
-  if(staySort === 'yasui') list.sort(function(a,b){ return a.price - b.price; });
-  else if(staySort === 'kuchikomi') list.sort(function(a,b){ return b.rv - a.rv; });
-  document.getElementById('hotellist').innerHTML = list.map(function(h, i){
-    var chosen = /^高知ホテル/.test(h.n);
-    var top = chosen;
-    var perNight = Math.round(h.price / 9);
-    var url = 'https://www.jalan.net/yad' + h.yad + '/plan/?stayYear=2026&stayMonth=11&stayDay=7&stayCount=3&roomCount=1&adultNum=3';
-    var bath = h.bath === true ? '<span class="mark y">あり</span>'
-             : h.bath === false ? '<span class="mark n">なし</span>'
-             : '<span class="mark n">未確認</span>';
-    return '<div class="hcard' + (top ? ' top' : '') + '">' +
-      '<div class="hn">' + esc(h.n) + (chosen ? '<span class="bdg ok">決定</span>' : '') + '</div>' +
-      '<div class="hmeta">' +
-        (h.sc ? '<span class="hsc">★ ' + h.sc.toFixed(1) + '</span><span class="hrv">口コミ ' + yen(h.rv) + '件</span>'
-              : '<span class="hrv">口コミはまだありません</span>') +
-        (h.left !== '—' ? '<span class="hleft">' + esc(h.left) + '</span>' : '') +
-      '</div>' +
-      '<div class="hprice"><span class="p1">' + yen(h.price) + '円</span>' +
-        '<span class="p2">3泊3名／1人1泊 約' + yen(perNight) + '円</span></div>' +
-      '<div class="hrow"><div class="k">プラン</div><div class="v ok">' + esc(h.plan) + '</div></div>' +
-      '<div class="hrow"><div class="k">立地</div><div class="v' + (h.locOk ? ' ok' : '') + '">' + esc(h.loc) + '</div></div>' +
-      '<div class="hrow"><div class="k">朝食</div><div class="v' + (h.asaOk>1 ? ' ok' : '') + '">' + esc(h.asa) + '</div></div>' +
-      '<div class="hrow"><div class="k">大浴場</div><div class="v">' + bath + '</div></div>' +
-      '<div class="hgood">' + esc(h.good) + '</div>' +
-      '<div class="hbad">' + esc(h.bad) + '</div>' +
-      '<a class="hlink" target="_blank" rel="noopener" href="' + url + '">じゃらんで見る</a>' +
-      '</div>';
-  }).join('');
-}
-function renderSoldout(){
-  document.getElementById('soldout').innerHTML =
-    SOLDOUT.map(function(s){ return '<b>' + esc(s) + '</b>'; }).join('　／　') +
-    '<br>いずれも11/7からの3泊・3名1室が埋まりました。とくにオリエントホテル高知（本館）は「じゃらんアワード 朝食部門 中国・四国1位」、ドーミーインは天然温泉つきで、朝食狙いなら本命でした。';
-}
-
 /* ══ タブ ══ */
 function goTab(name){
   document.querySelectorAll('#tabs button').forEach(function(x){ x.classList.toggle('on', x.dataset.p === name); });
@@ -1043,7 +910,6 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 /* ══ 起動 ══ */
 renderCountdown(); renderRings(); renderNext(); renderFixed(); renderMealChart();
 renderDays(); renderPlan(); renderDayBar(); renderMove();
-renderSortbar(); renderHotels(); renderSoldout();
 renderAsks(); renderGrid(); renderBooks();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
 
