@@ -116,8 +116,10 @@
   .spot .row{font-size:13px;color:var(--sub);line-height:1.75;margin-top:7px;}
   .spot .row b{color:var(--ink);font-weight:600;}
   .closed{color:var(--bad);font-weight:700;}
-  .maplink{display:inline-block;margin-top:9px;font-size:12px;font-weight:700;color:var(--accent);
+  .slinks{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px;}
+  .maplink{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);
     text-decoration:none;border:1px solid var(--soft);border-radius:7px;padding:4px 11px;}
+  .maplink.off{background:var(--accent);color:#fff;border-color:var(--accent);}
 
   .filter{display:flex;gap:6px;flex-wrap:wrap;margin:12px 4px 10px;}
   .filter button{
@@ -481,39 +483,39 @@ var BOOKS = [
 
 /* ══ お店 ══ */
 var SPOTS = [
-  { c:'夜', n:'酔鯨亭 高知店', k:'クジラ料理20種', when:'11/7(土) 19:00',
+  { c:'夜', n:'酔鯨亭 高知店', url:'https://www.suigeitei.com', k:'クジラ料理20種', when:'11/7(土) 19:00',
     ac:'はりまや橋 徒歩3分（宿から歩けます）', op:'火〜土 11:30-13:30／17:00-21:30　日祝は夜のみ', cl:'月曜定休', yoyaku:true },
-  { c:'夜', n:'明神丸 本店', k:'藁焼き鰹たたき', when:'11/8(日) 18:30',
+  { c:'夜', n:'明神丸 本店', url:'https://myojinmaru.jp', k:'藁焼き鰹たたき', when:'11/8(日) 18:30',
     ac:'路面電車「堀詰」徒歩1分', op:'17:00〜23:30', cl:'無休', yoyaku:true },
   { c:'夜', n:'草や', k:'田舎寿司', when:'11/9(月) 19:00 の候補',
     ac:'高知市鷹匠町2-1-41／電停「県庁前」徒歩3分', op:'17:30〜21:30（20:30 LO）', cl:'不定休',
     yoyaku:true, memo:'田舎寿司は6,000円のコースに含まれ、事前予約が必須' },
   { c:'夜', n:'どんこ', k:'郷土料理・清水さばの寿司', when:'11/9(月) 19:00 の候補',
     ac:'はりまや橋近くの古民家', op:'17:30〜23:00', cl:'水曜定休' },
-  { c:'夜', n:'屋台安兵衛 本店', k:'屋台餃子', when:'11/7(土) 21:30',
+  { c:'夜', n:'屋台安兵衛 本店', url:'https://mfc-group.jp/yasube/', k:'屋台餃子', when:'11/7(土) 21:30',
     ac:'高知市廿代町4-19', op:'19:00〜翌3:00（土は翌4:00）', cl:'日曜定休' },
-  { c:'市場', n:'ひろめ市場', k:'約60店の屋台村', when:'11/10(火) 12:30',
+  { c:'市場', n:'ひろめ市場', url:'https://hirome.co.jp', k:'約60店の屋台村', when:'11/10(火) 12:30',
     ac:'路面電車「大橋通」すぐ', op:'10:00〜', cl:'月1回 不定休',
     memo:'明神丸ひろめ市場店は予約不可。少量ずつハシゴするのが正解' },
-  { c:'市場', n:'日曜市', k:'約1km・約300店の街路市', when:'11/8(日) 8:20',
+  { c:'市場', n:'日曜市', url:'https://www.city.kochi.kochi.jp/site/gairoichi/', k:'約1km・約300店の街路市', when:'11/8(日) 8:20',
     ac:'追手筋（宿から路面電車で約10分）', op:'6:00〜14:00ごろ', cl:'日曜だけ開催',
     memo:'田舎寿司、揚げたての芋天、ところてん、ぼうしパン' },
-  { c:'市場', n:'久礼大正町市場 田中鮮魚店', k:'カツオの一本釣りの町', when:'11/9(月) 10:30',
+  { c:'市場', n:'久礼大正町市場 田中鮮魚店', url:'https://www.tanakatuo.com', k:'カツオの一本釣りの町', when:'11/9(月) 10:30',
     ac:'JR土佐久礼駅 徒歩5分／高知から特急 約50分', op:'店舗 9:00-17:00／食堂 10:00-15:00（LO14:30）', cl:'水曜定休',
     memo:'魚屋で選んで捌いてもらい、向かいの食堂で定食にする方式' },
-  { c:'催し', n:'土佐の豊穣祭 高知市会場', k:'県内の食材が集まる食イベント', when:'11/7(土)・11/8(日)',
+  { c:'催し', n:'土佐の豊穣祭 高知市会場', url:'https://www.tosa-hojyosai.com', k:'県内の食材が集まる食イベント', when:'11/7(土)・11/8(日)',
     ac:'中央公園（帯屋町1丁目）', op:'11/7 10:00-21:00／11/8 10:00-18:00', cl:'入場無料',
     memo:'四万十川の鮎の塩焼き、カツオのたたき、田舎寿司、土佐あかうし、柚子' },
-  { c:'見る', n:'坂本龍馬記念館', k:'桂浜のそば', when:'11/8(日) 13:10',
+  { c:'見る', n:'坂本龍馬記念館', url:'https://ryoma-kinenkan.jp', k:'桂浜のそば', when:'11/8(日) 13:10',
     ac:'MY遊バス「龍馬記念館前」徒歩2分／高知駅から約34分', op:'9:00〜17:00（入館16:30まで）', cl:'通年' },
-  { c:'見る', n:'桂浜', k:'太平洋と龍馬像', when:'11/8(日) 14:30', ac:'MY遊バス「桂浜」', op:'終日', cl:'通年' },
-  { c:'見る', n:'高知城', k:'天守と本丸が両方そろって残る全国唯一の城', when:'11/10(火) 14:15',
+  { c:'見る', n:'桂浜', url:'https://katsurahama-park.com', k:'太平洋と龍馬像', when:'11/8(日) 14:30', ac:'MY遊バス「桂浜」', op:'終日', cl:'通年' },
+  { c:'見る', n:'高知城', url:'https://kochipark.jp/kochijyo/', k:'天守と本丸が両方そろって残る全国唯一の城', when:'11/10(火) 14:15',
     ac:'ひろめ市場から徒歩5分／電停「高知城前」徒歩5分', op:'9:00〜17:00（最終入館16:30）・500円', cl:'12/26〜1/1',
     memo:'最終日の便が夜になったぶん、午後に入れました' },
-  { c:'見る', n:'牧野植物園／C.L.GARDEN', k:'五台山の上。レストランあり', when:'11/10(火) 9:40',
+  { c:'見る', n:'牧野植物園／C.L.GARDEN', url:'https://www.makino.or.jp', k:'五台山の上。レストランあり', when:'11/10(火) 9:40',
     ac:'JR高知駅からMY遊バスで約30分', op:'園 9:00-17:00／レストラン 9:00-17:00', cl:'年末年始のみ休園',
     memo:'モーニング9-11、ランチ11-15、カフェ15-17。植物研究交流センター3階' },
-  { c:'風呂', n:'黒潮本陣', k:'久礼湾を見下ろす高台の温泉', when:'11/9(月) 14:00',
+  { c:'風呂', n:'黒潮本陣', url:'http://honjin.or.jp', k:'久礼湾を見下ろす高台の温泉', when:'11/9(月) 14:00',
     ac:'中土佐町久礼（駅からの送迎は要確認）', op:'日帰り入浴あり', cl:'要電話確認',
     memo:'高知ホテルに大浴場がないので、湯に浸かれるのはここだけ' }
 ];
@@ -878,7 +880,10 @@ function renderSpots(){
       '<div class="row"><b>行き方</b>　' + esc(s.ac) + '</div>' +
       '<div class="row"><b>営業</b>　' + esc(s.op) + '　' + closed + '</div>' +
       (s.memo ? '<div class="row">' + esc(s.memo) + '</div>' : '') +
-      '<a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + q + '">地図で見る</a></div>';
+      '<div class="slinks">' +
+        (s.url ? '<a class="maplink off" target="_blank" rel="noopener" href="' + esc(s.url) + '">公式サイト</a>' : '') +
+        '<a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + q + '">地図で見る</a>' +
+      '</div></div>';
   }).join('');
 }
 var reqWho = 'すべて';
