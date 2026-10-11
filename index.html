@@ -180,12 +180,6 @@
   .hwin li{font-size:13.5px;line-height:1.7;margin-bottom:7px;}
   .hwin li:last-child{margin-bottom:0;}
   .item.lock{cursor:default;}
-  .jr{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:10px;
-      border-left:4px solid var(--accent);}
-  .jr .jl{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;}
-  .jr .jt{font-size:15px;font-weight:700;line-height:1.5;margin-top:3px;}
-  .jr .jb{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:5px;}
-  .jr .jb b{color:var(--ink);}
 
   /* ── 宿くらべ ── */
   /* 行き方・帰り方 */
@@ -246,7 +240,6 @@
       </div>
       <div class="rings" id="rings"></div>
       <div id="nextBox"></div>
-      <div id="jrBox"></div>
 
       <h2>いま決まっていること</h2>
       <div class="card" id="fixedList"></div>
@@ -374,7 +367,7 @@ var TRIP_START = '2026-11-07';
 var DAYS = [
   { id:'d1', md:'11/7', w:'土', title:'昼前に合流、そのまま本番', items:[
     { t:'11:27', c:'move', a:'東京組 高知駅着', b:'代々木上原6:38発 → JAL493（羽田9:15発）→ 空港連絡バス' },
-    { t:'11:30', c:'move', a:'京都組 高知駅着', b:'銀閣寺道6:33発 → のぞみ103号（京都7:41発）→ 特急 南風3号' },
+    { t:'11:30', c:'move', a:'京都組 高知駅着', b:'銀閣寺道6:03発 → ひかり731号（京都7:20発）→ 特急 南風3号' },
     { t:'11:35', c:'rest', a:'高知ホテルに荷物を預ける', b:'高知駅 南口から徒歩1分。チェックインは15:00から' },
     { t:'12:30', c:'food', m:'軽', a:'土佐の豊穣祭で昼', b:'中央公園（帯屋町）。ホテルから徒歩15分。この日は10:00〜21:00、入場無料' },
     { t:'15:00', c:'rest', a:'チェックイン・休憩', b:'禁煙ツイン 32平米。3名1室' },
@@ -425,26 +418,26 @@ var TRIP = {
       { t:'7:07',  a:'有楽町 発',     b:'JR京浜東北・根岸線 大船行／4番線' },
       { t:'7:20',  a:'浜松町 発',     b:'東京モノレール 空港快速' },
       { t:'7:36',  a:'羽田空港 第1ターミナル 着', b:'JALは第1。出発の1時間39分前' },
-      { t:'9:15',  a:'JAL493 羽田発', b:'', k:1 },
+      { t:'9:15',  a:'JAL493 羽田発', b:'＜26A・26B＞', k:1 },
       { t:'10:40', a:'高知龍馬空港 着', b:'1時間25分', k:1 },
       { t:'10:50', a:'空港連絡バス',   b:'2のりば。預け荷物があるときは次の11:20発に（高知駅11:45着）' },
       { t:'11:27', a:'高知駅 着',      b:'', k:1 }
     ], fare:'代々木上原→羽田 883円／空港バス 900円' },
     kyoto: { legs:[
-      { t:'6:33',  a:'銀閣寺道 発', b:'京都市営バス 7号（四条河原町・京都駅行）／Cのりば。乗り換えなしで京都駅まで' },
-      { t:'7:02',  a:'京都駅前 着', b:'歩いて駅へ（3分）。ここまで230円' },
-      { t:'7:07',  a:'京都駅 着',   b:'のぞみの34分前。お茶を買う余裕あり' },
-      { t:'7:41',  a:'京都 発',   b:'JR新幹線 のぞみ103号 博多行／13番線', k:1 },
-      { t:'8:41',  a:'岡山 着',   b:'乗り換え11分。在来線ホームへ' },
-      { t:'8:52',  a:'岡山 発',   b:'JR特急 南風3号 高知行／6番線。岡山始発なので座れます', k:1 },
+      { t:'6:03',  a:'銀閣寺道 発', b:'京都市営バス 7号（四条河原町・京都駅行）／Cのりば。乗り換えなしで京都駅まで・230円' },
+      { t:'6:32',  a:'京都駅前 着', b:'歩いて駅へ（3分）' },
+      { t:'6:37',  a:'京都駅 着',   b:'新幹線の43分前。次のバスだと13分前になるので、これに乗ってください' },
+      { t:'7:20',  a:'ひかり731号 京都発', b:'博多行／13番線　＜8号車 8番A席＞', k:1 },
+      { t:'8:23',  a:'岡山 着',   b:'乗り換え29分。在来線ホームへ' },
+      { t:'8:52',  a:'特急 南風3号 岡山発', b:'高知行　＜1号車 4番A席＞', k:1 },
       { t:'11:30', a:'高知 着',   b:'', k:1 }
-    ], fare:'銀閣寺道→京都駅 230円／京都→高知 12,860円（自由席）' }
+    ], fare:'銀閣寺道→京都駅 230円／京都→高知 指定席（予約済み）' }
   },
   back: { legs:[
     { t:'16:45', a:'ホテルを出る', b:'高知駅バスターミナルまで徒歩2分' },
     { t:'16:50', a:'空港連絡バス', b:'高知駅バスターミナル 北口6のりば。約33分・900円' },
     { t:'17:28', a:'高知龍馬空港 着', b:'出発の1時間47分前', k:1 },
-    { t:'19:15', a:'JAL498 高知発', b:'', k:1 },
+    { t:'19:15', a:'JAL498 高知発', b:'＜20A・20B・20C＞　3名そろって', k:1 },
     { t:'20:30', a:'羽田空港 着', b:'', k:1 }
   ], fare:'空港バス 900円' }
 };
@@ -482,7 +475,7 @@ var BOOKS = [
   { id:'b3', a:'酔鯨亭（11/7 夜）', b:'クジラ目当てなので押さえておきたい' },
   { id:'b4', a:'明神丸 本店（11/8 夜）', b:'座敷は埋まりやすい' },
   { id:'b5', a:'11/9の夜の店', b:'草やを選んだ場合は6,000円コース・事前予約が必須' },
-  { id:'b6', a:'京都1名の指定席（のぞみ103号＋南風3号）', b:'JRは乗る日の1か月前から。10月7日(水) 10:00に受付開始' },
+  { id:'b6', a:'京都1名の指定席（ひかり731号＋南風3号）', b:'予約済み。ひかり731号 8号車8番A／南風3号 1号車4番A', fix:true },
   { id:'b7', a:'黒潮本陣の日帰り入浴・送迎（電話）', b:'営業時間が変わることがあります' }
 ];
 
@@ -626,35 +619,12 @@ function renderNext(){
   }
 }
 
-/* ══ JRの予約解禁（乗車日の1か月前 10:00から） ══ */
-var JR_OPEN = '2026-10-07';
-function renderJR(){
-  var el = document.getElementById('jrBox');
-  if(S.book.b6){ el.innerHTML = ''; return; }
-  var today = new Date(); today.setHours(0,0,0,0);
-  var open = new Date(JR_OPEN + 'T00:00:00');
-  var d = Math.round((open - today) / 86400000);
-  var head, body;
-  if(d > 0){
-    head = 'JRの指定席は あと' + d + '日 で取れます';
-    body = '京都組の <b>のぞみ103号</b> と <b>特急 南風3号</b> は、乗る日の1か月前にならないと指定席が買えません。受付は <b>10月7日(水) 10:00</b> から。';
-  }else if(d === 0){
-    head = '今日 10:00 からJRの指定席が取れます';
-    body = '京都組の <b>のぞみ103号</b> と <b>特急 南風3号</b>。11/7は紅葉シーズンの土曜なので、早めに押さえてください。';
-  }else{
-    head = 'JRの指定席は もう取れます';
-    body = '10月7日に受付が始まっています。京都組の <b>のぞみ103号</b> と <b>特急 南風3号</b> がまだなら、決めるタブの予約リストから。';
-  }
-  el.innerHTML = '<div class="jr"><div class="jl">JRの予約</div>' +
-    '<div class="jt">' + esc(head) + '</div><div class="jb">' + body + '</div></div>';
-}
-
 /* ══ 決まっていること ══ */
 function renderFixed(){
   var rows = [
     ['日程', '11月7日(土) 〜 10日(火)　確定'],
     ['宿',   '高知ホテル　3泊・3名1室・禁煙・素泊まり（高知駅 徒歩1分）　予約済み'],
-    ['行き', '東京2名 代々木上原6:38→JAL493／京都1名 銀閣寺道6:33→のぞみ103号。11:30に高知駅で合流'],
+    ['行き', '東京2名 代々木上原6:38→JAL493／京都1名 銀閣寺道6:03→ひかり731号。11:30に高知駅で合流'],
     ['帰り', '3名そろって JAL498（高知19:15→羽田20:30）'],
     ['ルート', '東京2名は 東京⇄高知 の往復／京都1名は 京都→高知→東京。京都には戻りません'],
     ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
@@ -866,7 +836,7 @@ function renderBooks(){
     el.addEventListener('click', function(){
       var k = el.dataset.b; S.book[k] = !S.book[k]; save();
       el.classList.toggle('done', !!S.book[k]);
-      renderRings(); renderNext(); renderJR();
+      renderRings(); renderNext();
     });
   });
 }
@@ -943,7 +913,7 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 });
 
 /* ══ 起動 ══ */
-renderCountdown(); renderRings(); renderNext(); renderJR(); renderFixed(); renderMealChart();
+renderCountdown(); renderRings(); renderNext(); renderFixed(); renderMealChart();
 renderDays(); renderPlan(); renderDayBar(); renderMove();
 renderAsks(); renderGrid(); renderBooks();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
