@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 55 300 120" role="img" aria-label="藁焼き鰹のたたきのイラスト">
+<rect width="300" height="200" fill="#F6EBE3"/>
+<path d="M240 58 q-18 22 -4 38 q-11 -5 -13 -16 q-13 18 0 33 q11 13 29 11 q22 -2 24 -24 q2 -24 -20 -42 q5 15 -5 22 q-2 -18 -11 -22z" fill="#C8622A"/>
+<ellipse cx="140" cy="142" rx="100" ry="31" fill="#FFFFFF"/>
+<ellipse cx="140" cy="138" rx="88" ry="25" fill="#F0EAE4"/>
+<g>
+<rect x="70" y="112" width="34" height="27" rx="4" fill="#B3402F" transform="rotate(-8 87 125)"/>
+<rect x="102" y="110" width="34" height="27" rx="4" fill="#C04A36" transform="rotate(-3 119 123)"/>
+<rect x="134" y="110" width="34" height="27" rx="4" fill="#B3402F" transform="rotate(2 151 123)"/>
+<rect x="166" y="112" width="34" height="27" rx="4" fill="#C04A36" transform="rotate(7 183 125)"/>
+</g>
+<g fill="#3A2A22">
+<rect x="70" y="112" width="34" height="6" rx="3" transform="rotate(-8 87 115)"/>
+<rect x="102" y="110" width="34" height="6" rx="3" transform="rotate(-3 119 113)"/>
+<rect x="134" y="110" width="34" height="6" rx="3" transform="rotate(2 151 113)"/>
+<rect x="166" y="112" width="34" height="6" rx="3" transform="rotate(7 183 115)"/>
+</g>
+<circle cx="94" cy="150" r="5" fill="#0D5C63"/>
+<circle cx="148" cy="152" r="5" fill="#0D5C63"/>
+<circle cx="196" cy="148" r="5" fill="#0D5C63"/>
+</svg>

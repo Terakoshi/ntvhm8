@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 68 300 120" role="img" aria-label="海を見下ろす露天風呂のイラスト">
+<rect width="300" height="200" fill="#CFE3E6"/>
+<rect y="78" width="300" height="52" fill="#2E7E8C"/>
+<g stroke="#5AA3AE" stroke-width="3" fill="none">
+<path d="M0 94 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+<path d="M0 112 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0"/>
+</g>
+<path d="M0 130 q40 -14 84 -4 q40 10 76 2 q44 -10 90 0 q30 6 50 -2 V200 H0Z" fill="#6E7A72"/>
+<ellipse cx="150" cy="160" rx="98" ry="29" fill="#4A4F4C"/>
+<ellipse cx="150" cy="158" rx="90" ry="24" fill="#9BD3D8"/>
+<ellipse cx="150" cy="156" rx="82" ry="20" fill="#B9E3E6"/>
+<g stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85">
+<path d="M110 132 q-10 -16 2 -28 q10 -10 2 -22"/>
+<path d="M150 128 q-10 -16 2 -28 q10 -10 2 -22"/>
+<path d="M190 132 q-10 -16 2 -28 q10 -10 2 -22"/>
+</g>
+</svg>

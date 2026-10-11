@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 38 300 120" role="img" aria-label="屋台の提灯と餃子のイラスト">
+<rect width="300" height="200" fill="#14201E"/>
+<g transform="translate(234,16)">
+<rect x="8" width="4" height="12" fill="#6B625A"/>
+<ellipse cx="10" cy="40" rx="24" ry="30" fill="#C8622A"/>
+<g stroke="#9A4A20" stroke-width="2"><path d="M-13 28h46"/><path d="M-14 40h48"/><path d="M-13 52h46"/></g>
+<rect x="-2" y="8" width="24" height="6" rx="2" fill="#3A2A22"/>
+<rect x="-2" y="66" width="24" height="6" rx="2" fill="#3A2A22"/>
+</g>
+<ellipse cx="140" cy="142" rx="106" ry="35" fill="#3A3F3D"/>
+<ellipse cx="140" cy="136" rx="94" ry="28" fill="#4A514E"/>
+<g fill="#E8C98E">
+<path d="M68 134 q17 -21 35 -2 q-17 10 -35 2z"/>
+<path d="M103 126 q17 -21 35 -2 q-17 10 -35 2z"/>
+<path d="M138 122 q17 -21 35 -2 q-17 10 -35 2z"/>
+<path d="M173 126 q17 -21 35 -2 q-17 10 -35 2z"/>
+<path d="M87 150 q17 -21 35 -2 q-17 10 -35 2z"/>
+<path d="M156 150 q17 -21 35 -2 q-17 10 -35 2z"/>
+</g>
+<g fill="#C79A54">
+<path d="M68 134 q18 4 35 -2 v3 q-17 6 -35 2z"/>
+<path d="M138 122 q18 4 35 -2 v3 q-17 6 -35 2z"/>
+</g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 45 300 120" role="img" aria-label="クジラのイラスト">
+<rect width="300" height="200" fill="#0D5C63"/>
+<path d="M0 158 q38 -12 76 0 t76 0 t76 0 t72 -2 V200 H0Z" fill="#0A484E"/>
+<path d="M60 120 q0 -34 56 -34 q44 0 68 26 l40 -22 -10 30 10 30 -40 -20 q-26 24 -68 24 q-56 0 -56 -34z" fill="#EAF3F2"/>
+<circle cx="86" cy="112" r="4.5" fill="#14201E"/>
+<path d="M66 128 q22 10 46 2" stroke="#BCD6D4" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M104 82 q-4 -20 6 -30" stroke="#D4E3E3" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M112 82 q10 -16 24 -22" stroke="#D4E3E3" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>

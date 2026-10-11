@@ -1,13 +1,27 @@
 /* 電波がなくても開けるようにするための裏方ファイル */
 /* ファイルを直したら、下の数字を1つ増やすこと（古い画面が残らないように） */
-var CACHE = 'ntvhm8-v13';
+var CACHE = 'ntvhm8-v14';
 var FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './img/kochijo.jpg',
+  './img/katsurahama.jpg',
+  './img/makino.jpg',
+  './img/ryoma.jpg',
+  './img/kure.jpg',
+  './img/hirome.jpg',
+  './img/kujira.svg',
+  './img/katsuo.svg',
+  './img/inakazushi.svg',
+  './img/sabazushi.svg',
+  './img/gyoza.svg',
+  './img/nichiyoichi.svg',
+  './img/hojosai.svg',
+  './img/onsen.svg'
 ];
 
 self.addEventListener('install', function(e){

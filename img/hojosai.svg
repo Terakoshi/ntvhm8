@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 300 120" role="img" aria-label="食のイベントののぼりと料理のイラスト">
+<rect width="300" height="200" fill="#F6EBE3"/>
+<rect x="34" y="24" width="4" height="130" fill="#6B625A"/>
+<path d="M38 28 h54 v76 h-54z" fill="#C8622A"/>
+<g fill="#FFF"><circle cx="65" cy="48" r="7"/><circle cx="65" cy="68" r="7"/><circle cx="65" cy="88" r="7"/></g>
+<rect x="242" y="34" width="4" height="120" fill="#6B625A"/>
+<path d="M188 38 h54 v68 h-54z" fill="#0D5C63"/>
+<g fill="#FFF"><circle cx="215" cy="56" r="7"/><circle cx="215" cy="76" r="7"/></g>
+<rect x="76" y="142" width="148" height="14" rx="4" fill="#C9A87C"/>
+<ellipse cx="150" cy="134" rx="64" ry="19" fill="#FFFFFF"/>
+<circle cx="124" cy="126" r="13" fill="#B3402F"/>
+<circle cx="150" cy="122" r="13" fill="#E3B23C"/>
+<circle cx="176" cy="126" r="13" fill="#2E7D5B"/>
+</svg>

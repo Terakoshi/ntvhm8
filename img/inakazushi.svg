@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 61 300 120" role="img" aria-label="田舎寿司のイラスト">
+<rect width="300" height="200" fill="#EFF4F3"/>
+<rect x="26" y="114" width="248" height="46" rx="8" fill="#C9A87C"/>
+<rect x="26" y="114" width="248" height="12" rx="6" fill="#D8BC95"/>
+<g fill="#FFFFFF">
+<rect x="54" y="96" width="58" height="27" rx="12"/>
+<rect x="120" y="96" width="58" height="27" rx="12"/>
+<rect x="186" y="96" width="58" height="27" rx="12"/>
+</g>
+<path d="M52 98 q29 -23 62 -4 q-31 11 -62 4z" fill="#B65A7A"/>
+<rect x="118" y="82" width="62" height="18" rx="6" fill="#6E6257"/>
+<path d="M184 100 q31 -27 62 -2 q-31 9 -62 2z" fill="#D9CE9A"/>
+<circle cx="262" cy="90" r="13" fill="#E3B23C"/>
+</svg>
