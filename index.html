@@ -110,6 +110,8 @@
   .item.done .tag{background:#EFEFEF;color:#A8B2B0;}
 
   /* ── お店カード ── */
+  .maplbl{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px;}
+  .mapsvg{width:100%;height:auto;border-radius:8px;}
   .spot{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:8px;overflow:hidden;}
   .spot .simg{display:block;width:calc(100% + 28px);height:140px;object-fit:cover;
     margin:-13px -14px 10px;background:var(--soft);}
@@ -323,6 +325,85 @@
 
     <!-- ══ 候補 ══ -->
     <div class="pane" id="p-list">
+      <h2>位置関係</h2>
+      <div class="card">
+        <div class="maplbl">広いほう　高知駅を真ん中に置いた向きと所要時間</div>
+        <svg class="mapsvg" viewBox="0 0 300 170" role="img" aria-label="高知駅を中心に、久礼は西へ特急50分、桂浜は南へバス34分、五台山の牧野植物園は東へバス30分、高知龍馬空港は東へバス33分という位置関係の図。">
+          <rect width="300" height="170" fill="#EAF2EC"/>
+          <path d="M0 118 q40 -10 80 -4 q46 8 84 0 q44 -10 90 2 q28 6 46 -2 V170 H0Z" fill="#CFE0DA"/>
+          <line x1="150" y1="84" x2="52" y2="62"  stroke="#B7C2BF" stroke-width="3" stroke-dasharray="5 4"/>
+          <line x1="150" y1="84" x2="150" y2="140" stroke="#B7C2BF" stroke-width="3" stroke-dasharray="5 4"/>
+          <line x1="150" y1="84" x2="246" y2="56" stroke="#B7C2BF" stroke-width="3" stroke-dasharray="5 4"/>
+          <line x1="150" y1="84" x2="256" y2="112" stroke="#B7C2BF" stroke-width="3" stroke-dasharray="5 4"/>
+          <circle cx="150" cy="84" r="13" fill="#0D5C63"/>
+          <text x="150" y="88" font-family="-apple-system,sans-serif" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">高知</text>
+          <g font-family="-apple-system,sans-serif" font-size="10" font-weight="700" fill="#14201E" text-anchor="middle">
+            <text x="46" y="50">久礼</text>
+            <text x="150" y="156">桂浜</text>
+            <text x="250" y="44">五台山</text>
+            <text x="262" y="128">空港</text>
+          </g>
+          <g font-family="-apple-system,sans-serif" font-size="9" fill="#56635F" text-anchor="middle">
+            <text x="46" y="62">特急 50分</text>
+            <text x="150" y="167">バス 34分</text>
+            <text x="250" y="56">バス 30分</text>
+            <text x="262" y="140">バス 33分</text>
+          </g>
+          <g font-family="-apple-system,sans-serif" font-size="9" fill="#94A09D">
+            <text x="8" y="16">西</text><text x="286" y="16">東</text><text x="8" y="164">南</text>
+          </g>
+        </svg>
+        <p class="cap">泊まるのは高知駅のすぐそば。<b>市街の用事は全部歩ける範囲にあり、離れているのは久礼・桂浜・五台山の3つだけ</b>です。この3つはどれも別の日に振ってあります。</p>
+      </div>
+
+      <div class="card">
+        <div class="maplbl">市街　駅から南に下りて、そこから西へ伸びる形</div>
+        <svg class="mapsvg" viewBox="0 0 300 200" role="img" aria-label="高知市街の位置関係の図。高知駅とホテルが北の端にあり、南へ徒歩10分ではりまや橋。はりまや橋から西へ路面電車の通りが伸び、堀詰、大橋通、高知城前と続く。その通りの北側に追手筋があり、日曜市・豊穣祭・てんこす・ひろめ市場・高知城が並ぶ。">
+          <rect width="300" height="200" fill="#EAF2EC"/>
+          <rect x="30" y="126" width="228" height="7" rx="3" fill="#B7C2BF"/>
+          <rect x="246" y="36" width="7" height="94" rx="3" fill="#B7C2BF"/>
+          <rect x="44" y="74" width="170" height="6" rx="3" fill="#D8CBB8"/>
+
+          <circle cx="249" cy="30" r="9" fill="#C8622A"/>
+          <circle cx="249" cy="130" r="6" fill="#0D5C63"/>
+          <circle cx="186" cy="130" r="5" fill="#0D5C63"/>
+          <circle cx="120" cy="130" r="5" fill="#0D5C63"/>
+          <circle cx="56"  cy="130" r="5" fill="#0D5C63"/>
+          <circle cx="120" cy="77"  r="5" fill="#C8622A"/>
+          <circle cx="200" cy="52"  r="5" fill="#C8622A"/>
+          <circle cx="152" cy="100" r="5" fill="#C8622A"/>
+          <circle cx="100" cy="106" r="5" fill="#C8622A"/>
+          <circle cx="48"  cy="100" r="5" fill="#C8622A"/>
+          <circle cx="78"  cy="160" r="5" fill="#C8622A"/>
+          <circle cx="232" cy="160" r="5" fill="#C8622A"/>
+          <circle cx="176" cy="112" r="5" fill="#C8622A"/>
+
+          <g font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#14201E">
+            <text x="232" y="16" text-anchor="middle">高知駅・ホテル</text>
+            <text x="249" y="147" text-anchor="middle">はりまや橋</text>
+            <text x="186" y="147" text-anchor="middle">堀詰</text>
+            <text x="118" y="147" text-anchor="middle">大橋通</text>
+            <text x="50"  y="147" text-anchor="middle">高知城前</text>
+          </g>
+          <g font-family="-apple-system,sans-serif" font-size="9.5" fill="#8C4A1E">
+            <text x="120" y="68" text-anchor="middle">日曜市（追手筋）</text>
+            <text x="200" y="42" text-anchor="middle">安兵衛</text>
+            <text x="162" y="98" text-anchor="start">豊穣祭・てんこす</text>
+            <text x="100" y="121" text-anchor="middle">ひろめ市場</text>
+            <text x="48"  y="92" text-anchor="middle">高知城</text>
+            <text x="78"  y="175" text-anchor="middle">草や</text>
+            <text x="232" y="175" text-anchor="middle">酔鯨亭</text>
+            <text x="170" y="116" text-anchor="end">明神丸</text>
+          </g>
+          <g font-family="-apple-system,sans-serif" font-size="9" fill="#56635F">
+            <text x="259" y="76" text-anchor="start">徒歩</text>
+            <text x="259" y="87" text-anchor="start">10分</text>
+          </g>
+          <text x="8" y="193" font-family="-apple-system,sans-serif" font-size="8.5" fill="#94A09D">●青＝電停　●橙＝行き先</text>
+        </svg>
+        <p class="cap">高知駅からまっすぐ南に下りると<b>はりまや橋</b>。そこから西へ路面電車の通りが伸びていて、<b>ひろめ市場・高知城・日曜市はその西側にまとまって</b>います。はりまや橋から大橋通までは電車5分・徒歩10分、大橋通から高知城前は徒歩5分。駅から追手筋へは徒歩15分で、乗り換えが要る電車より歩くほうが早いです。</p>
+      </div>
+
       <h2>行くところ</h2>
       <div class="filter" id="spotfilter"></div>
       <div id="spotlist"></div>
