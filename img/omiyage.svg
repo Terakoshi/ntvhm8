@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 55 300 120" role="img" aria-label="おみやげの紙袋と地酒のイラスト">
+<rect width="300" height="200" fill="#F6EBE3"/>
+<rect x="20" y="146" width="260" height="12" rx="4" fill="#C9A87C"/>
+<path d="M96 86 h72 v60 h-72z" fill="#E0D2C0"/>
+<path d="M96 86 h72 v10 h-72z" fill="#CDBCA6"/>
+<path d="M112 86 q14 -18 28 0" stroke="#8C7B66" stroke-width="3.5" fill="none"/>
+<rect x="188" y="92" width="26" height="54" rx="4" fill="#2E5B4A"/>
+<rect x="196" y="72" width="10" height="22" fill="#2E5B4A"/>
+<rect x="188" y="108" width="26" height="16" fill="#F2EDE4"/>
+<rect x="222" y="100" width="24" height="46" rx="4" fill="#8C5A34"/>
+<rect x="229" y="82" width="10" height="20" fill="#8C5A34"/>
+<rect x="222" y="114" width="24" height="14" fill="#F2EDE4"/>
+<rect x="46" y="112" width="44" height="34" rx="3" fill="#C8622A"/>
+<rect x="46" y="122" width="44" height="6" fill="#E9D8CB"/>
+</svg>
