@@ -1,6 +1,6 @@
 /* 電波がなくても開けるようにするための裏方ファイル */
 /* ファイルを直したら、下の数字を1つ増やすこと（古い画面が残らないように） */
-var CACHE = 'ntvhm8-v15';
+var CACHE = 'ntvhm8-v16';
 var FILES = [
   './',
   './index.html',
@@ -20,8 +20,7 @@ var FILES = [
   './img/sabazushi.svg',
   './img/gyoza.svg',
   './img/nichiyoichi.svg',
-  './img/hojosai.svg',
-  './img/onsen.svg'
+  './img/hojosai.svg'
 ];
 
 self.addEventListener('install', function(e){
