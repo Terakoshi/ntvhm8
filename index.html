@@ -110,6 +110,19 @@
   .item.done .tag{background:#EFEFEF;color:#A8B2B0;}
 
   /* ── お店カード ── */
+  .cnt{font-size:12px;font-weight:700;color:var(--sub);margin-left:8px;}
+  .tel{background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:8px;
+       display:flex;align-items:center;gap:12px;}
+  .tel .tl{flex:1;min-width:0;}
+  .tel .tn{font-size:14.5px;font-weight:700;line-height:1.4;}
+  .tel .tm{font-size:12px;color:var(--sub);line-height:1.6;margin-top:2px;}
+  .tel a{flex:none;font-size:13px;font-weight:700;color:#fff;background:var(--accent);
+    text-decoration:none;border-radius:8px;padding:8px 13px;font-variant-numeric:tabular-nums;}
+  .cost{display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);}
+  .cost:last-child{border-bottom:none;}
+  .cost .cn{flex:1;font-size:13.5px;font-weight:700;line-height:1.5;}
+  .cost .cp{flex:none;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent);}
+  .cost .cm{font-size:12px;color:var(--sub);line-height:1.6;margin-top:2px;font-weight:400;}
   .maplbl{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px;}
   .mapsvg{width:100%;height:auto;border-radius:8px;}
   .spot{background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:8px;overflow:hidden;}
@@ -245,6 +258,10 @@
         <div class="h2" id="heroBig"></div>
         <div class="h3" id="heroSub"></div>
       </div>
+      <h2>食べたいもの<span class="cnt" id="foodCnt"></span></h2>
+      <p class="lead">食べたらタップして消し込みます。この端末にだけ残ります。</p>
+      <div class="card" id="foodlist"></div>
+
       <h2>食事の入り方</h2>
       <div class="card">
         <div id="mealChart"></div>
@@ -292,6 +309,28 @@
       </div>
 
       <p class="foot">高知ホテルの情報は2026年9月7日に、じゃらん・公式サイト・楽天トラベルで確認したものです。</p>
+    </div>
+
+    <!-- ══ 現地 ══ -->
+    <div class="pane" id="p-local">
+      <h2>電話する</h2>
+      <p class="lead">番号をタップするとかけられます。</p>
+      <div id="tellist"></div>
+
+      <h2>現地で払うもの</h2>
+      <div class="card" id="costlist"></div>
+      <p class="cap">MY遊バスは<b>JR高知駅南口の「とさてらす」</b>か、<b>はりまや橋サービスセンター</b>、<b>高知駅バスターミナル</b>、車内でも買えます。券を持っているその日は<b>路面電車の市内均一区間が無料</b>になります。</p>
+
+      <h2>現金を持っておくところ</h2>
+      <div class="card">
+        <ul class="hwin">
+          <li><b>屋台安兵衛</b>　現金のみ</li>
+          <li><b>日曜市</b>　露店なので現金</li>
+          <li><b>ひろめ市場</b>　店によって現金のみ</li>
+          <li><b>MY遊バスを車内で買うとき</b>　現金</li>
+        </ul>
+      </div>
+      <p class="foot">料金と電話番号は2026年10月18日に各公式サイトで確認したものです。路面電車の運賃は2024年11月に200円から230円へ上がっています。</p>
     </div>
 
     <!-- ══ 候補 ══ -->
@@ -401,6 +440,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg>旅程</button>
     <button data-p="stay">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 20V7.5l8.5-4 8.5 4V20"/><path d="M9 20v-6h6v6"/></svg>宿</button>
+    <button data-p="local">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3c0 1-1 1.8-2 1.7C11.5 20.2 3.8 12.5 3.3 5.5c-.1-1 .7-2 1.7-2z"/></svg>現地</button>
     <button data-p="list">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s6.5-6.1 6.5-10.6A6.5 6.5 0 0 0 5.5 10.4C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.4"/></svg>候補</button>
   </div>
@@ -413,8 +454,9 @@
    保存するもの（この端末の中だけ。外には出ない）
    ══════════════════════════════════════════════ */
 var KEY = 'ntvhm8';
-var S = { done:{}, book:{}, dec:{}, grp:'tokyo' };
+var S = { done:{}, food:{}, grp:'tokyo' };
 try{ var raw = localStorage.getItem(KEY); if(raw) S = Object.assign(S, JSON.parse(raw)); }catch(e){}
+if(!S.food) S.food = {};
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
 var TRIP_START = '2026-11-07';
@@ -499,6 +541,84 @@ var TRIP = {
 };
 
 
+/* ══ 食べたいもの ══ */
+var FOODS = [
+  { n:'藁焼き鰹のたたき', w:'明神丸 本店（11/8夜）・ひろめ市場・久礼' },
+  { n:'日戻り生カツオの刺身', w:'久礼 田中鮮魚店（11/9昼）' },
+  { n:'田舎寿司', w:'日曜市（11/8朝）・草や' },
+  { n:'クジラ', w:'酔鯨亭（11/7夜）' },
+  { n:'屋台餃子', w:'安兵衛（11/7夜）' },
+  { n:'清水さばの寿司', w:'どんこ（11/9夜の候補）' },
+  { n:'ウツボ', w:'久礼で聞いてみる。市内ならタタキか唐揚げ' },
+  { n:'芋天', w:'日曜市（揚げたて）' },
+  { n:'ぼうしパン', w:'日曜市・市内のパン屋' },
+  { n:'ところてん', w:'日曜市' },
+  { n:'土佐あかうし', w:'豊穣祭（11/7・11/8）' },
+  { n:'四万十川の鮎の塩焼き', w:'豊穣祭' },
+  { n:'柚子のもの', w:'豊穣祭・てんこす' },
+  { n:'地酒', w:'酔鯨亭・てんこす' }
+];
+
+/* ══ 電話する ══ */
+var TELS = [
+  { n:'高知ホテル', t:'088-822-8008', m:'泊まるところ。駅前町4-10' },
+  { n:'酔鯨亭 高知店', t:'088-855-3520', m:'11/7(土) 18:30 予約済み' },
+  { n:'屋台安兵衛 本店', t:'088-873-2773', m:'11/7(土) 21:30。予約は取らない店' },
+  { n:'坂本龍馬記念館', t:'088-841-0001', m:'11/8(日) 13:10' },
+  { n:'明神丸 本店', t:'088-820-6505', m:'11/8(日) 18:30 予約済み。本町1-1-2' },
+  { n:'田中鮮魚店（久礼）', t:'0889-52-2729', m:'11/9(月) 10:30。水曜定休' },
+  { n:'どんこ', t:'088-875-2424', m:'11/9(月) 夜の候補。予約なしで入れる' },
+  { n:'草や', t:'088-855-3436', m:'11/9(月) 夜の候補。田舎寿司は要予約' },
+  { n:'牧野植物園', t:'088-882-2601', m:'11/10(火) 9:40' },
+  { n:'ひろめ市場', t:'088-822-5287', m:'11/10(火) 12:30' },
+  { n:'とさでん交通', t:'0570-001-410', m:'路面電車・バスの時刻と運賃' }
+];
+
+/* ══ 現地で払うもの ══ */
+var COSTS = [
+  { n:'空港連絡バス', p:'900円', m:'高知龍馬空港 ⇄ 高知駅バスターミナル。1人・片道' },
+  { n:'MY遊バス 桂浜券', p:'1,500円', m:'11/8に使う。1日乗り放題。路面電車の市内均一区間も無料' },
+  { n:'MY遊バス 五台山券', p:'1,000円', m:'11/10に使う。桂浜線には乗れないので注意' },
+  { n:'路面電車（市内均一区間）', p:'230円', m:'MY遊バスの券があるその日は無料' },
+  { n:'高知↔土佐久礼（特急・自由席）', p:'2,440円', m:'11/9。片道・1人。乗車券1,240円＋特急券1,200円' },
+  { n:'坂本龍馬記念館', p:'500円', m:'企画展の期間は900円' },
+  { n:'高知城 天守', p:'500円', m:'最終入館16:30' },
+  { n:'牧野植物園', p:'850円', m:'高校生以下は無料' }
+];
+
+function renderFoods(){
+  document.getElementById('foodlist').innerHTML = FOODS.map(function(f, i){
+    var k = 'f' + i;
+    return '<div class="item' + (S.food[k] ? ' done' : '') + '" data-f="' + k + '">' +
+      '<div class="box">' + CHECK + '</div><div class="tx">' +
+      '<div class="t1">' + esc(f.n) + '</div><div class="t2">' + esc(f.w) + '</div></div></div>';
+  }).join('');
+  var n = 0; FOODS.forEach(function(f, i){ if(S.food['f' + i]) n++; });
+  document.getElementById('foodCnt').textContent = n + ' / ' + FOODS.length;
+  document.querySelectorAll('#foodlist .item').forEach(function(el){
+    el.addEventListener('click', function(){
+      var k = el.dataset.f; S.food[k] = !S.food[k]; save();
+      renderFoods();
+    });
+  });
+}
+
+function renderTels(){
+  document.getElementById('tellist').innerHTML = TELS.map(function(x){
+    return '<div class="tel"><div class="tl"><div class="tn">' + esc(x.n) + '</div>' +
+      '<div class="tm">' + esc(x.m) + '</div></div>' +
+      '<a href="tel:' + x.t.replace(/-/g, '') + '">' + esc(x.t) + '</a></div>';
+  }).join('');
+}
+
+function renderCosts(){
+  document.getElementById('costlist').innerHTML = COSTS.map(function(x){
+    return '<div class="cost"><div class="cn">' + esc(x.n) +
+      '<div class="cm">' + esc(x.m) + '</div></div>' +
+      '<div class="cp">' + esc(x.p) + '</div></div>';
+  }).join('');
+}
+
 /* ══ 宿からの片道時間 ══ */
 var DIST = [
   { n:'市内の店・日曜市', min:10,  ok:true,  up:true  },
@@ -516,7 +636,7 @@ var SPOTS = [
     ac:'はりまや橋 徒歩3分（宿から歩けます）', op:'火〜土 11:30-13:30／17:00-21:30　日祝は夜のみ', cl:'月曜定休', yoyaku:true },
   { c:'夜', n:'明神丸 本店', img:'img/katsuo.svg', url:'https://myojinmaru.jp', k:'藁焼き鰹たたき', when:'11/8(日) 18:30',
     ac:'路面電車「堀詰」徒歩1分', op:'17:00〜23:30', cl:'無休', yoyaku:true },
-  { c:'夜', n:'草や', img:'img/inakazushi.svg', k:'田舎寿司', when:'11/9(月) 19:00 の候補',
+  { c:'夜', n:'草や', img:'img/inakazushi.svg', url:'https://www.kusaya-kochi.com', k:'田舎寿司', when:'11/9(月) 19:00 の候補',
     ac:'高知市鷹匠町2-1-41／電停「県庁前」徒歩3分', op:'17:30〜21:30（20:30 LO）', cl:'不定休',
     yoyaku:true, memo:'田舎寿司は6,000円のコースに含まれ、事前予約が必須。11/9は予約を取らない方針なので、当日行くなら電話で空きを聞くことになります' },
   { c:'夜', n:'どんこ', img:'img/sabazushi.svg', k:'郷土料理・清水さばの寿司', when:'11/9(月) 19:00 の候補',
@@ -825,7 +945,8 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 });
 
 /* ══ 起動 ══ */
-renderCountdown(); renderMealChart();
+renderCountdown(); renderFoods(); renderMealChart();
+renderTels(); renderCosts();
 renderDays(); renderPlan(); renderDayBar(); renderMove();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
 
