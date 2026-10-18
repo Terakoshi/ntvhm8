@@ -116,8 +116,11 @@
   .tel .tl{flex:1;min-width:0;}
   .tel .tn{font-size:14.5px;font-weight:700;line-height:1.4;}
   .tel .tm{font-size:12px;color:var(--sub);line-height:1.6;margin-top:2px;}
-  .tel a{flex:none;font-size:13px;font-weight:700;color:#fff;background:var(--accent);
-    text-decoration:none;border-radius:8px;padding:8px 13px;font-variant-numeric:tabular-nums;}
+  .tel .ta{flex:none;display:flex;flex-direction:column;gap:5px;}
+  .tel a{font-size:13px;font-weight:700;text-decoration:none;border-radius:8px;
+    padding:8px 13px;text-align:center;font-variant-numeric:tabular-nums;}
+  .tel .tcall{color:#fff;background:var(--accent);}
+  .tel .tweb{color:var(--accent);border:1px solid var(--soft);font-size:12px;padding:5px 13px;}
   .cost{display:flex;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);}
   .cost:last-child{border-bottom:none;}
   .cost .cn{flex:1;font-size:13.5px;font-weight:700;line-height:1.5;}
@@ -561,17 +564,17 @@ var FOODS = [
 
 /* ══ 電話する ══ */
 var TELS = [
-  { n:'高知ホテル', t:'088-822-8008', m:'泊まるところ。駅前町4-10' },
-  { n:'酔鯨亭 高知店', t:'088-855-3520', m:'11/7(土) 18:30 予約済み' },
-  { n:'屋台安兵衛 本店', t:'088-873-2773', m:'11/7(土) 21:30。予約は取らない店' },
-  { n:'坂本龍馬記念館', t:'088-841-0001', m:'11/8(日) 13:10' },
-  { n:'明神丸 本店', t:'088-820-6505', m:'11/8(日) 18:30 予約済み。本町1-1-2' },
-  { n:'田中鮮魚店（久礼）', t:'0889-52-2729', m:'11/9(月) 10:30。水曜定休' },
+  { n:'高知ホテル', t:'088-822-8008', m:'泊まるところ。駅前町4-10', u:'https://www.kochihotel.co.jp' },
+  { n:'酔鯨亭 高知店', t:'088-855-3520', m:'11/7(土) 18:30 予約済み', u:'https://www.suigeitei.com' },
+  { n:'屋台安兵衛 本店', t:'088-873-2773', m:'11/7(土) 21:30。予約は取らない店', u:'https://mfc-group.jp/yasube/' },
+  { n:'坂本龍馬記念館', t:'088-841-0001', m:'11/8(日) 13:10', u:'https://ryoma-kinenkan.jp' },
+  { n:'明神丸 本店', t:'088-820-6505', m:'11/8(日) 18:30 予約済み。本町1-1-2', u:'https://myojinmaru.jp' },
+  { n:'田中鮮魚店（久礼）', t:'0889-52-2729', m:'11/9(月) 10:30。水曜定休', u:'https://www.tanakatuo.com' },
   { n:'どんこ', t:'088-875-2424', m:'11/9(月) 夜の候補。予約なしで入れる' },
-  { n:'草や', t:'088-855-3436', m:'11/9(月) 夜の候補。田舎寿司は要予約' },
-  { n:'牧野植物園', t:'088-882-2601', m:'11/10(火) 9:40' },
-  { n:'ひろめ市場', t:'088-822-5287', m:'11/10(火) 12:30' },
-  { n:'とさでん交通', t:'0570-001-410', m:'路面電車・バスの時刻と運賃' }
+  { n:'草や', t:'088-855-3436', m:'11/9(月) 夜の候補。田舎寿司は要予約', u:'https://www.kusaya-kochi.com' },
+  { n:'牧野植物園', t:'088-882-2601', m:'11/10(火) 9:40', u:'https://www.makino.or.jp' },
+  { n:'ひろめ市場', t:'088-822-5287', m:'11/10(火) 12:30', u:'https://hirome.co.jp' },
+  { n:'とさでん交通', t:'0570-001-410', m:'路面電車・バスの時刻と運賃', u:'https://www.tosaden.co.jp' }
 ];
 
 /* ══ 現地で払うもの ══ */
@@ -607,7 +610,9 @@ function renderTels(){
   document.getElementById('tellist').innerHTML = TELS.map(function(x){
     return '<div class="tel"><div class="tl"><div class="tn">' + esc(x.n) + '</div>' +
       '<div class="tm">' + esc(x.m) + '</div></div>' +
-      '<a href="tel:' + x.t.replace(/-/g, '') + '">' + esc(x.t) + '</a></div>';
+      '<div class="ta"><a class="tcall" href="tel:' + x.t.replace(/-/g, '') + '">' + esc(x.t) + '</a>' +
+      (x.u ? '<a class="tweb" target="_blank" rel="noopener" href="' + esc(x.u) + '">サイト</a>' : '') +
+      '</div></div>';
   }).join('');
 }
 
