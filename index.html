@@ -245,18 +245,12 @@
         <div class="h2" id="heroBig"></div>
         <div class="h3" id="heroSub"></div>
       </div>
-      <div class="rings" id="rings"></div>
-      <div id="nextBox"></div>
-
-      <h2>いま決まっていること</h2>
-      <div class="card" id="fixedList"></div>
-
       <h2>食事の入り方</h2>
       <div class="card">
         <div id="mealChart"></div>
         <p class="cap">濃い丸が「腰を据えて食べる」、薄い丸が「つまむ程度」。<b>丸が近いところが詰まっています。</b>4日で14回ぶんあるので、薄い丸は3人でシェアする前提です。</p>
       </div>
-      <p class="foot">チェックや選択はこの端末の中だけに残ります。他の人の画面には反映されません。</p>
+      <p class="foot">旅程のチェックはこの端末の中だけに残ります。他の人の画面には反映されません。</p>
     </div>
 
     <!-- ══ 旅程 ══ -->
@@ -266,29 +260,10 @@
       <div class="card" style="padding:14px 14px 10px"><div id="dayBar"></div></div>
       <div id="moveCard"></div>
       <div class="card" id="planlist"></div>
-      <div class="note"><b>宿は高知ホテルで決まりました。</b>JR高知駅の南口を出て徒歩1分です。<b>大浴場はありません</b>（部屋のユニットバスのみ）。詳しくは宿タブへ。</div>
       <p class="foot">タップでチェックが付きます。時刻は目安です。</p>
     </div>
 
-    <!-- ══ 決める ══ -->
-    <div class="pane" id="p-decide">
-      <h2>決めること</h2>
-      <p class="lead"><b>決めることは残っていません。</b>11/9の夜だけは、あえて決めずに空けてあります。現地で気分と腹具合で選ぶぶんの余白です。</p>
-      <div id="asklist"></div>
-      <button class="btn" id="copyBtn">決まったことをコピーしてDiscordに貼る</button>
 
-      <h2>なぜこの順番なのか</h2>
-      <div class="card">
-        <div id="closedGrid"></div>
-        <p class="cap"><b>酔鯨亭は月曜が休み、屋台安兵衛は日曜が休み。</b>両方に行けるのは11/7しかないので、初日の夜にクジラと餃子をまとめています。</p>
-      </div>
-
-      <h2>予約が要るもの</h2>
-      <div class="card" id="booklist"></div>
-      <p class="foot">11/9の夜は予約しません。草やは要予約なので、当日ふらっと入れるのは実質どんこのほうになります。</p>
-    </div>
-
-    <!-- ══ 宿 ══ -->
     <div class="pane" id="p-stay">
       <h2>泊まるところ</h2>
       <div class="hfix">
@@ -300,11 +275,10 @@
           <div><dt>チェックアウト</dt><dd>10:00まで</dd></div>
           <div><dt>部屋</dt><dd><b>禁煙</b>のツイン 32㎡・3名1室<br>シモンズ製ベッド2台＋エキストラベッド1台</dd></div>
           <div><dt>食事</dt><dd>素泊まり<br>朝食を頼む場合は2階で6:45〜9:30（L.O.9:15）</dd></div>
+          <div><dt>風呂</dt><dd>部屋のユニットバスのみ（大浴場なし）</dd></div>
           <div><dt>目安の料金</dt><dd>3泊3名で 89,490円<br>じゃらんの連泊割・素泊まりで調べた額です。実際の金額は予約の控えを見てください</dd></div>
         </dl>
       </div>
-
-      <div class="note"><b>大浴場はありません。</b>お風呂は部屋のユニットバスだけです。</div>
 
       <h2>駅前がいちばん効く場面</h2>
       <div class="card">
@@ -316,9 +290,6 @@
         </ol>
         <p class="cap">逆に弱いのは<b>11/8の朝の日曜市</b>です。追手筋まで<b>徒歩15分</b>。路面電車だと「はりまや橋」で乗り換えが要って22分かかるので、<b>歩いたほうが早い</b>です。8:20に着きたいなら8:00にホテルを出てください。</p>
       </div>
-
-      <h2>朝食を付けなかった理由</h2>
-      <div class="note"><b>素泊まりです。</b>ここの朝食バイキングは口コミの評価が高いのですが、<b>朝にお腹をいっぱいにすると昼と夜が入らなくなる</b>のが今回の趣旨と噛み合いません。11/8の朝は日曜市で田舎寿司を食べます。当日ふらっと食べたくなったら、2階で6:45から開いています。</div>
 
       <p class="foot">高知ホテルの情報は2026年9月7日に、じゃらん・公式サイト・楽天トラベルで確認したものです。</p>
     </div>
@@ -430,8 +401,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg>旅程</button>
     <button data-p="stay">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 20V7.5l8.5-4 8.5 4V20"/><path d="M9 20v-6h6v6"/></svg>宿</button>
-    <button data-p="decide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 12.2l2.3 2.3 4.5-4.7"/></svg>決める<span class="dot" id="tabDot"></span></button>
     <button data-p="list">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s6.5-6.1 6.5-10.6A6.5 6.5 0 0 0 5.5 10.4C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10.3" r="2.4"/></svg>候補</button>
   </div>
@@ -529,17 +498,6 @@ var TRIP = {
   ], fare:'空港バス 900円' }
 };
 
-/* ══ 決めること ══ */
-var ASKS = [];
-
-/* ══ 定休日グリッド ══ */
-var GRID = [
-  { n:'日曜市',      v:['—','開催','—','—'] },
-  { n:'豊穣祭',      v:['開催','開催','—','—'] },
-  { n:'酔鯨亭',      v:['営業','営業','定休','営業'] },
-  { n:'屋台安兵衛',  v:['営業','定休','営業','営業'] },
-  { n:'明神丸 本店', v:['営業','営業','営業','営業'] }
-];
 
 /* ══ 宿からの片道時間 ══ */
 var DIST = [
@@ -551,14 +509,6 @@ var DIST = [
   { n:'いろりや',         min:110, ok:false, up:false }
 ];
 
-/* ══ 予約 ══ */
-var BOOKS = [
-  { id:'b1', a:'高知ホテル 3泊・3名1室・禁煙・素泊まり', b:'予約済み', fix:true },
-  { id:'b2', a:'JAL特典航空券 往路2枚・復路3枚', b:'予約済み。往路11/7 JAL493（羽田9:15発）／復路11/10 JAL498（高知19:15発）', fix:true },
-  { id:'b3', a:'酔鯨亭（11/7 18:30）', b:'予約済み', fix:true },
-  { id:'b4', a:'明神丸 本店（11/8 18:30）', b:'予約済み', fix:true },
-  { id:'b6', a:'京都1名の指定席（ひかり731号＋南風3号）', b:'予約済み。ひかり731号 8号車8番A／南風3号 1号車4番A', fix:true }
-];
 
 /* ══ お店 ══ */
 var SPOTS = [
@@ -636,8 +586,6 @@ function toast(m){
   clearTimeout(toastT); toastT = setTimeout(function(){ el.classList.remove('on'); }, 1700);
 }
 
-function decCount(){ var n=0; ASKS.forEach(function(a){ if(S.dec[a.id]) n++; }); return n; }
-function bookCount(){ var n=0; BOOKS.forEach(function(b){ if(b.fix || S.book[b.id]) n++; }); return n; }
 
 /* ══ 上の帯 ══ */
 function renderCountdown(){
@@ -661,61 +609,8 @@ function renderCountdown(){
 }
 
 /* ══ 進み具合のリング ══ */
-function ring(done, total, label){
-  var r = 26, C = 2 * Math.PI * r;
-  var p = total ? done / total : 0;
-  return '<div class="ring">' +
-    '<svg viewBox="0 0 64 64" style="width:64px;height:64px;margin:0 auto">' +
-    '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="#E2E8E7" stroke-width="7"/>' +
-    '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="' + (p>=1 ? '#1E6B4F' : '#0D5C63') + '" stroke-width="7" stroke-linecap="round" ' +
-    'stroke-dasharray="' + (C*p).toFixed(1) + ' ' + C.toFixed(1) + '" transform="rotate(-90 32 32)"/>' +
-    '<text x="32" y="37" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="17" font-weight="700" fill="#14201E">' + done + '</text>' +
-    '</svg>' +
-    '<div class="rl">' + label + '</div><div class="rn">' + done + ' / ' + total + '</div></div>';
-}
-function renderRings(){
-  document.getElementById('rings').innerHTML =
-    (ASKS.length ? ring(decCount(), ASKS.length, '決まった') : '') +
-    ring(bookCount(), BOOKS.length, '予約した');
-  document.getElementById('tabDot').style.display =
-    (ASKS.length && decCount() < ASKS.length) ? 'block' : 'none';
-}
 
-/* ══ 次にやること ══ */
-function renderNext(){
-  var el = document.getElementById('nextBox');
-  var pend = ASKS.filter(function(a){ return !S.dec[a.id]; });
-  if(pend.length){
-    el.innerHTML = '<div class="next"><div class="nl">つぎにやること</div>' +
-      '<div class="nt">' + esc(pend[0].q) + '</div>' +
-      '<div class="nb">決めることが残り' + pend.length + '件あります。ここが決まらないと予約に進めません。</div>' +
-      '<button class="go" id="goDecide">決めるタブをひらく</button></div>';
-    document.getElementById('goDecide').addEventListener('click', function(){ goTab('decide'); });
-  }else{
-    var left = BOOKS.length - bookCount();
-    el.innerHTML = '<div class="next ok"><div class="nl">つぎにやること</div>' +
-      '<div class="nt">' + (left ? '予約を進める（残り' + left + '件）' : 'すべて完了しました') + '</div>' +
-      '<div class="nb">' + (left ? '決めることはもうありません。あとは押さえるだけです。' : '決めることも予約も終わりました。11/9の夜だけ、あえて空けてあります。') + '</div>' +
-      (left ? '<button class="go" id="goDecide" style="background:#0D5C63">決めるタブをひらく</button>' : '') + '</div>';
-    var g = document.getElementById('goDecide');
-    if(g) g.addEventListener('click', function(){ goTab('decide'); });
-  }
-}
 
-/* ══ 決まっていること ══ */
-function renderFixed(){
-  var rows = [
-    ['日程', '11月7日(土) 〜 10日(火)　確定'],
-    ['宿',   '高知ホテル　3泊・3名1室・禁煙・素泊まり（高知駅 徒歩1分）　予約済み'],
-    ['行き', '東京2名 代々木上原6:38→JAL493／京都1名 銀閣寺道6:03→ひかり731号。11:30に高知駅で合流'],
-    ['帰り', '3名そろって JAL498（高知19:15→羽田20:30）'],
-    ['ルート', '東京2名は 東京⇄高知 の往復／京都1名は 京都→高知→東京。京都には戻りません'],
-    ['9日の夜', 'あえて未定。現地で決める（候補は草や／どんこ）']
-  ];
-  document.getElementById('fixedList').innerHTML = rows.map(function(r){
-    return '<div class="fixed"><div class="fk">' + esc(r[0]) + '</div><div class="fv">' + esc(r[1]) + '</div></div>';
-  }).join('');
-}
 
 /* ══ 食事の入り方（図） ══ */
 function renderMealChart(){
@@ -767,28 +662,6 @@ function renderDayBar(){
   document.getElementById('dayBar').innerHTML = s;
 }
 
-/* ══ 定休日グリッド ══ */
-function renderGrid(){
-  var W = 320, colX = 108, colW = (W - colX) / 4, rowH = 27, top = 18;
-  var H = top + GRID.length * rowH + 2;
-  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto" role="img" aria-label="主要な店と催しの4日間の営業状況。酔鯨亭は月曜定休、屋台安兵衛は日曜定休。">';
-  ['11/7土','11/8日','11/9月','11/10火'].forEach(function(lb, i){
-    s += '<text x="' + (colX + colW*i + colW/2).toFixed(1) + '" y="10" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#56635F">' + lb + '</text>';
-  });
-  GRID.forEach(function(g, r){
-    var y = top + r * rowH;
-    s += '<text x="102" y="' + (y + 17) + '" text-anchor="end" font-family="-apple-system,sans-serif" font-size="11.5" fill="#14201E">' + g.n + '</text>';
-    g.v.forEach(function(v, i){
-      var x = colX + colW*i + 2, w = colW - 4;
-      var bg = v==='定休' ? '#F4E9E9' : (v==='—' ? '#F5F7F6' : (v==='開催' ? '#0D5C63' : '#D4E3E3'));
-      var fg = v==='定休' ? '#9A2B2B' : (v==='—' ? '#A8B2B0' : (v==='開催' ? '#FFFFFF' : '#14201E'));
-      s += '<rect x="' + x.toFixed(1) + '" y="' + (y+4) + '" width="' + w.toFixed(1) + '" height="19" rx="3" fill="' + bg + '"/>';
-      s += '<text x="' + (x + w/2).toFixed(1) + '" y="' + (y + 17) + '" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" font-weight="' + (v==='定休'?'700':'400') + '" fill="' + fg + '">' + v + '</text>';
-    });
-  });
-  s += '</svg>';
-  document.getElementById('closedGrid').innerHTML = s;
-}
 
 /* ══ 片道時間の図 ══ */
 function renderDist(){
@@ -887,63 +760,6 @@ function renderMove(){
   });
 }
 
-/* ══ 決める ══ */
-function renderAsks(){
-  document.getElementById('asklist').innerHTML = ASKS.map(function(a, i){
-    var got = S.dec[a.id];
-    return '<div class="ask' + (got ? ' settled' : '') + '">' +
-      '<div class="qn">' + (i+1) + '　' + (got ? '決まりました' : 'まだ決まっていません') + '</div>' +
-      '<div class="q">' + esc(a.q) + '</div><div class="a">' + esc(a.a) + '</div>' +
-      '<div class="choice">' + a.opts.map(function(o){
-        return '<button data-q="' + a.id + '" data-o="' + esc(o) + '"' + (got===o ? ' class="on"' : '') + '>' + esc(o) + '</button>';
-      }).join('') + '</div></div>';
-  }).join('');
-  document.querySelectorAll('.choice button').forEach(function(b){
-    b.addEventListener('click', function(){
-      var q = b.dataset.q, o = b.dataset.o;
-      S.dec[q] = (S.dec[q] === o) ? '' : o; save();
-      renderAsks(); renderRings(); renderNext(); renderFixed(); renderPlan();
-    });
-  });
-}
-function renderBooks(){
-  document.getElementById('booklist').innerHTML = BOOKS.map(function(x){
-    var done = x.fix || S.book[x.id];
-    return '<div class="item' + (done ? ' done' : '') + (x.fix ? ' lock' : '') + '" data-b="' + x.id + '">' +
-      '<div class="box">' + CHECK + '</div><div class="tx"><div class="t1">' + esc(x.a) +
-      (x.fix ? '<span class="bdg ok">済</span>' : '') + '</div>' +
-      (x.b ? '<div class="t2">' + esc(x.b) + '</div>' : '') + '</div></div>';
-  }).join('');
-  document.querySelectorAll('#booklist .item:not(.lock)').forEach(function(el){
-    el.addEventListener('click', function(){
-      var k = el.dataset.b; S.book[k] = !S.book[k]; save();
-      el.classList.toggle('done', !!S.book[k]);
-      renderRings(); renderNext();
-    });
-  });
-}
-document.getElementById('copyBtn').addEventListener('click', function(){
-  var L = ['【高知旅行 いまの状況】', ''];
-  if(ASKS.length){
-    ASKS.forEach(function(a, i){
-      L.push((i+1) + '. ' + a.q);
-      L.push('　→ ' + (S.dec[a.id] ? S.dec[a.id] : 'まだ決まっていません'));
-    });
-  }else{
-    L.push('決めることは残っていません。11/9の夜だけ、あえて空けてあります。');
-  }
-  L.push('');
-  BOOKS.forEach(function(b){
-    L.push((b.fix || S.book[b.id] ? '済 ' : '未 ') + b.a);
-  });
-  L.push('');
-  L.push('予約した: ' + bookCount() + '/' + BOOKS.length);
-  var s = L.join('\n');
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(s).then(function(){ toast('コピーしました'); },
-                                         function(){ toast('コピーできませんでした'); });
-  }else{ toast('コピーできませんでした'); }
-});
 
 /* ══ 候補 ══ */
 var spotCat = 'すべて';
@@ -1009,9 +825,8 @@ document.querySelectorAll('#tabs button').forEach(function(b){
 });
 
 /* ══ 起動 ══ */
-renderCountdown(); renderRings(); renderNext(); renderFixed(); renderMealChart();
+renderCountdown(); renderMealChart();
 renderDays(); renderPlan(); renderDayBar(); renderMove();
-renderAsks(); renderGrid(); renderBooks();
 renderSpotFilter(); renderSpots(); renderReqFilter(); renderReqs(); renderDist();
 
 if('serviceWorker' in navigator && location.protocol === 'https:'){
