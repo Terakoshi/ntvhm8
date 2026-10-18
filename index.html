@@ -273,7 +273,7 @@
     <!-- ══ 決める ══ -->
     <div class="pane" id="p-decide">
       <h2>決めること</h2>
-      <p class="lead">日程・宿・京都に寄るかは決まりました。残っているのは<b>11/9の夜をどこにするか</b>だけです。</p>
+      <p class="lead"><b>決めることは残っていません。</b>11/9の夜だけは、あえて決めずに空けてあります。現地で気分と腹具合で選ぶぶんの余白です。</p>
       <div id="asklist"></div>
       <button class="btn" id="copyBtn">決まったことをコピーしてDiscordに貼る</button>
 
@@ -285,7 +285,7 @@
 
       <h2>予約が要るもの</h2>
       <div class="card" id="booklist"></div>
-      <p class="foot">11/9の夜が決まらないと「11/9の夜の店」は押さえられません。ほかは先に進められます。</p>
+      <p class="foot">11/9の夜は予約しません。草やは要予約なので、当日ふらっと入れるのは実質どんこのほうになります。</p>
     </div>
 
     <!-- ══ 宿 ══ -->
@@ -478,7 +478,7 @@ var DAYS = [
     { t:'10:30', c:'food', m:'本番', a:'久礼大正町市場', b:'田中鮮魚店で刺身定食。食堂は15:00まで（LO14:30）' },
     { t:'14:30', c:'move', a:'高知へ戻る', b:'特急で約50分' },
     { t:'15:30', c:'rest', a:'ホテルで休む', b:'夜に備えて一度仕切り直す' },
-    { t:'19:00', c:'food', m:'本番', a:'草や または どんこ', b:'酔鯨亭は月曜定休。決めるタブで選べます' },
+    { t:'19:00', c:'food', m:'本番', a:'夕食（現地で決める）', b:'あえて空けてあります。候補は草や（田舎寿司・要予約）とどんこ（清水さばの寿司）。候補タブに両方そのまま置いてあります' },
     { t:'22:00', c:'food', m:'軽', a:'屋台安兵衛（予備）', b:'初日に行けなかった場合の予備' }
   ]},
   { id:'d4', md:'11/10', w:'火', title:'緑と市場、そして帰路', items:[
@@ -530,11 +530,7 @@ var TRIP = {
 };
 
 /* ══ 決めること ══ */
-var ASKS = [
-  { id:'q3', q:'11/9の夜は、草やか、どんこか',
-    a:'草やは6,000円のコースで田舎寿司つき・要予約。11/8の朝に日曜市で田舎寿司を食べるので、かぶるのが嫌なら「どんこ」（清水さばの寿司）。',
-    opts:['草や','どんこ'] }
-];
+var ASKS = [];
 
 /* ══ 定休日グリッド ══ */
 var GRID = [
@@ -561,7 +557,6 @@ var BOOKS = [
   { id:'b2', a:'JAL特典航空券 往路2枚・復路3枚', b:'予約済み。往路11/7 JAL493（羽田9:15発）／復路11/10 JAL498（高知19:15発）', fix:true },
   { id:'b3', a:'酔鯨亭（11/7 18:30）', b:'予約済み', fix:true },
   { id:'b4', a:'明神丸 本店（11/8 18:30）', b:'予約済み', fix:true },
-  { id:'b5', a:'11/9の夜の店', b:'草やを選んだ場合は6,000円コース・事前予約が必須' },
   { id:'b6', a:'京都1名の指定席（ひかり731号＋南風3号）', b:'予約済み。ひかり731号 8号車8番A／南風3号 1号車4番A', fix:true }
 ];
 
@@ -573,9 +568,9 @@ var SPOTS = [
     ac:'路面電車「堀詰」徒歩1分', op:'17:00〜23:30', cl:'無休', yoyaku:true },
   { c:'夜', n:'草や', img:'img/inakazushi.svg', k:'田舎寿司', when:'11/9(月) 19:00 の候補',
     ac:'高知市鷹匠町2-1-41／電停「県庁前」徒歩3分', op:'17:30〜21:30（20:30 LO）', cl:'不定休',
-    yoyaku:true, memo:'田舎寿司は6,000円のコースに含まれ、事前予約が必須' },
+    yoyaku:true, memo:'田舎寿司は6,000円のコースに含まれ、事前予約が必須。11/9は予約を取らない方針なので、当日行くなら電話で空きを聞くことになります' },
   { c:'夜', n:'どんこ', img:'img/sabazushi.svg', k:'郷土料理・清水さばの寿司', when:'11/9(月) 19:00 の候補',
-    ac:'はりまや橋近くの古民家', op:'17:30〜23:00', cl:'水曜定休' },
+    ac:'はりまや橋近くの古民家', op:'17:30〜23:00', cl:'水曜定休', memo:'予約なしで入れるので、11/9の夜はこちらが現実的な本命' },
   { c:'夜', n:'屋台安兵衛 本店', img:'img/gyoza.svg', url:'https://mfc-group.jp/yasube/', k:'屋台餃子', when:'11/7(土) 21:30',
     ac:'高知市廿代町4-19', op:'19:00〜翌3:00（土は翌4:00）', cl:'日曜定休' },
   { c:'市場', n:'ひろめ市場', img:'img/hirome.jpg', cr:'Raita Futo / CC BY 2.0 / Wikimedia Commons', url:'https://hirome.co.jp', k:'約60店の屋台村', when:'11/10(火) 12:30',
@@ -680,8 +675,10 @@ function ring(done, total, label){
 }
 function renderRings(){
   document.getElementById('rings').innerHTML =
-    ring(decCount(), ASKS.length, '決まった') + ring(bookCount(), BOOKS.length, '予約した');
-  document.getElementById('tabDot').style.display = (decCount() < ASKS.length) ? 'block' : 'none';
+    (ASKS.length ? ring(decCount(), ASKS.length, '決まった') : '') +
+    ring(bookCount(), BOOKS.length, '予約した');
+  document.getElementById('tabDot').style.display =
+    (ASKS.length && decCount() < ASKS.length) ? 'block' : 'none';
 }
 
 /* ══ 次にやること ══ */
@@ -698,7 +695,7 @@ function renderNext(){
     var left = BOOKS.length - bookCount();
     el.innerHTML = '<div class="next ok"><div class="nl">つぎにやること</div>' +
       '<div class="nt">' + (left ? '予約を進める（残り' + left + '件）' : 'すべて完了しました') + '</div>' +
-      '<div class="nb">' + (left ? '決めることは全部決まりました。あとは押さえるだけです。' : '決めることも予約も終わっています。') + '</div>' +
+      '<div class="nb">' + (left ? '決めることはもうありません。あとは押さえるだけです。' : '決めることも予約も終わりました。11/9の夜だけ、あえて空けてあります。') + '</div>' +
       (left ? '<button class="go" id="goDecide" style="background:#0D5C63">決めるタブをひらく</button>' : '') + '</div>';
     var g = document.getElementById('goDecide');
     if(g) g.addEventListener('click', function(){ goTab('decide'); });
@@ -713,7 +710,7 @@ function renderFixed(){
     ['行き', '東京2名 代々木上原6:38→JAL493／京都1名 銀閣寺道6:03→ひかり731号。11:30に高知駅で合流'],
     ['帰り', '3名そろって JAL498（高知19:15→羽田20:30）'],
     ['ルート', '東京2名は 東京⇄高知 の往復／京都1名は 京都→高知→東京。京都には戻りません'],
-    ['9日の夜', S.dec.q3 ? S.dec.q3 : '草や か どんこ（未定）']
+    ['9日の夜', 'あえて未定。現地で決める（候補は草や／どんこ）']
   ];
   document.getElementById('fixedList').innerHTML = rows.map(function(r){
     return '<div class="fixed"><div class="fk">' + esc(r[0]) + '</div><div class="fv">' + esc(r[1]) + '</div></div>';
@@ -844,7 +841,6 @@ function renderPlan(){
   document.getElementById('planlist').innerHTML = d.items.map(function(it,i){
     var k = d.id + '-' + i;
     var a = it.a;
-    if(it.a === '草や または どんこ' && S.dec.q3) a = S.dec.q3;
     var tag = it.m ? '<span class="tag ' + (it.m==='本番'?'honban':'karu') + '">' + it.m + '</span>' : '';
     return '<div class="item' + (S.done[k] ? ' done' : '') + '" data-k="' + k + '">' +
       '<div class="tm">' + esc(it.t) + '</div><div class="box">' + CHECK + '</div>' +
@@ -928,12 +924,20 @@ function renderBooks(){
 }
 document.getElementById('copyBtn').addEventListener('click', function(){
   var L = ['【高知旅行 いまの状況】', ''];
-  ASKS.forEach(function(a, i){
-    L.push((i+1) + '. ' + a.q);
-    L.push('　→ ' + (S.dec[a.id] ? S.dec[a.id] : 'まだ決まっていません'));
+  if(ASKS.length){
+    ASKS.forEach(function(a, i){
+      L.push((i+1) + '. ' + a.q);
+      L.push('　→ ' + (S.dec[a.id] ? S.dec[a.id] : 'まだ決まっていません'));
+    });
+  }else{
+    L.push('決めることは残っていません。11/9の夜だけ、あえて空けてあります。');
+  }
+  L.push('');
+  BOOKS.forEach(function(b){
+    L.push((b.fix || S.book[b.id] ? '済 ' : '未 ') + b.a);
   });
   L.push('');
-  L.push('決まった: ' + decCount() + '/' + ASKS.length + '　予約した: ' + bookCount() + '/' + BOOKS.length);
+  L.push('予約した: ' + bookCount() + '/' + BOOKS.length);
   var s = L.join('\n');
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(s).then(function(){ toast('コピーしました'); },
